@@ -3,13 +3,17 @@ import '../styles/global.css';
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = 'Astro + Tailwind' } = Astro.props;
+const {
+	title = 'Martin Bendl — Persönlicher Dialog, Podcast & Beratung',
+	description = 'Offizielle Website von Martin Bendl: Authentischer Podcast auf bayerischem Dialekt und psychologische Unterstützung im Gehen (Walk & Talk).'
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang="de" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +21,18 @@ const { title = 'Astro + Tailwind' } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/martin-bendl.jpg" />
+		<meta property="og:type" content="website" />
+		
+		<!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 	</head>
-	<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+	<body class="min-h-screen bg-[#fbfbfa] text-[#1c1c1a] antialiased selection:bg-[#1d2633] selection:text-white flex flex-col justify-between">
 		<slot />
 	</body>
 </html>

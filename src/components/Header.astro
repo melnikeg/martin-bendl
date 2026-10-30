@@ -1,0 +1,113 @@
+---
+---
+
+<header class="sticky top-0 z-50 bg-[#fbfbfa]/90 backdrop-blur-md border-b border-[#e7e5e0] transition-colors duration-200">
+	<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+		<!-- Brand / Logo -->
+		<a href="/" class="group flex flex-col">
+			<span class="text-xl md:text-2xl font-semibold tracking-tight text-[#1c1c1a] group-hover:text-[#253243] transition-colors font-serif">
+				Martin Bendl
+			</span>
+			<span class="text-[10px] uppercase tracking-widest text-[#787672] font-medium">
+				Dialog &middot; Podcast &middot; Beratung
+			</span>
+		</a>
+
+		<!-- Desktop Navigation -->
+		<nav class="hidden md:flex items-center gap-8 text-sm">
+			<a href="#ueber-mich" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
+				Über mich
+			</a>
+			<a href="#podcast" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium flex items-center gap-1.5">
+				<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+				Podcast
+			</a>
+			<a href="#walk-and-talk" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
+				Walk & Talk Beratung
+			</a>
+			<a href="#kontakt" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
+				Kontakt
+			</a>
+		</nav>
+
+		<!-- Action CTA -->
+		<div class="hidden sm:flex items-center gap-3">
+			<a
+				href="#walk-and-talk"
+				class="text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded-none border border-[#1d2633] text-[#1d2633] hover:bg-[#1d2633] hover:text-white transition-all duration-200"
+			>
+				Termin anfragen
+			</a>
+		</div>
+
+		<!-- Mobile Menu Button -->
+		<button
+			id="mobile-menu-btn"
+			type="button"
+			class="md:hidden p-2 text-[#1c1c1a] hover:text-[#253243] focus:outline-none"
+			aria-label="Menü öffnen"
+		>
+			<svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+			</svg>
+			<svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+	</div>
+
+	<!-- Mobile Dropdown -->
+	<div id="mobile-menu" class="hidden md:hidden border-b border-[#e7e5e0] bg-[#fbfbfa] px-6 py-5 space-y-4 shadow-lg">
+		<a href="#ueber-mich" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
+			Über mich
+		</a>
+		<a href="#podcast" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
+			🎙️ Podcast (Bayerischer Dialekt)
+		</a>
+		<a href="#walk-and-talk" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
+			🚶 Walk & Talk Beratung
+		</a>
+		<a href="#kontakt" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
+			Kontakt & Impressum
+		</a>
+		<div class="pt-3">
+			<a
+				href="#walk-and-talk"
+				class="block text-center text-xs uppercase tracking-wider font-semibold px-4 py-3 bg-[#1d2633] text-white hover:bg-[#253243] transition-colors mobile-link"
+			>
+				Termin für Walk & Talk anfragen
+			</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	const btn = document.getElementById('mobile-menu-btn');
+	const menu = document.getElementById('mobile-menu');
+	const openIcon = document.getElementById('menu-icon-open');
+	const closeIcon = document.getElementById('menu-icon-close');
+	const links = document.querySelectorAll('.mobile-link');
+
+	if (btn && menu && openIcon && closeIcon) {
+		btn.addEventListener('click', () => {
+			const isHidden = menu.classList.contains('hidden');
+			if (isHidden) {
+				menu.classList.remove('hidden');
+				openIcon.classList.add('hidden');
+				closeIcon.classList.remove('hidden');
+			} else {
+				menu.classList.add('hidden');
+				openIcon.classList.remove('hidden');
+				closeIcon.classList.add('hidden');
+			}
+		});
+
+		links.forEach((l) => {
+			l.addEventListener('click', () => {
+				menu.classList.add('hidden');
+				openIcon.classList.remove('hidden');
+				closeIcon.classList.add('hidden');
+			});
+		});
+	}
+</script>

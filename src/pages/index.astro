@@ -1,36 +1,186 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Добро пожаловать в Astro">
-	<main class="flex min-h-screen flex-col items-center justify-center p-6 text-center">
-		<div class="max-w-2xl space-y-6">
-			<div class="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-medium text-violet-300">
-				<span>🚀</span> Astro + TypeScript + Tailwind CSS
-			</div>
+<Layout
+	title="Martin Bendl — Offizielle Website | Podcast & Walk & Talk"
+	description="Offizielle Website von Martin Bendl: Authentische Lebensgespräche auf bayerischem Dialekt im Podcast und psychologische Beratung in Bewegung (Walk & Talk)."
+>
+	<Header />
 
-			<h1 class="text-4xl font-extrabold tracking-tight sm:text-6xl bg-gradient-to-r from-violet-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
-				Сайт успешно создан!
-			</h1>
-
-			<p class="text-lg text-slate-400">
-				Минимальный проект на Astro готов к разработке. Редактируйте <code class="rounded bg-slate-800 px-2 py-1 text-sm font-mono text-violet-300">src/pages/index.astro</code>, чтобы начать.
+	<main class="w-full">
+		<!-- Hero Section -->
+		<section class="max-w-4xl mx-auto px-6 pt-12 md:pt-16 pb-8 text-center">
+			<p class="text-xs md:text-sm uppercase tracking-[0.25em] text-[#787672] font-semibold mb-3">
+				Persönlicher Dialog &middot; Bayern
 			</p>
+			<h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#1c1c1a] tracking-tight leading-[1.08] mb-6">
+				Martin Bendl
+			</h1>
+			<p class="text-lg md:text-xl text-[#575653] font-light max-w-2xl mx-auto leading-relaxed">
+				Menschlichkeit im Mittelpunkt: Gespräche, die berühren, und Begleitung, die bewegt.
+			</p>
+		</section>
 
-			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
-				<div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5 shadow-sm">
-					<h2 class="text-base font-semibold text-slate-200">Быстрый старт</h2>
-					<p class="mt-2 text-sm text-slate-400">Запустите <code class="text-violet-300">npm run dev</code> для локального сервера разработки.</p>
-				</div>
-				<div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5 shadow-sm">
-					<h2 class="text-base font-semibold text-slate-200">TypeScript</h2>
-					<p class="mt-2 text-sm text-slate-400">Строгая типизация для компонентов и контента из коробки.</p>
-				</div>
-				<div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5 shadow-sm">
-					<h2 class="text-base font-semibold text-slate-200">Tailwind CSS</h2>
-					<p class="mt-2 text-sm text-slate-400">Стилизация с помощью utility-классов Tailwind v4.</p>
+		<!-- Central Image Section -->
+		<section class="max-w-5xl mx-auto px-6 pb-16">
+			<div class="relative overflow-hidden rounded-none border border-[#e7e5e0] shadow-sm bg-white">
+				<img
+					src="/martin-bendl.jpg"
+					alt="Porträt von Martin Bendl"
+					class="w-full h-auto max-h-[640px] object-cover object-center transition-transform duration-700 hover:scale-[1.01]"
+					loading="eager"
+				/>
+				<div class="p-4 md:p-5 bg-white border-t border-[#e7e5e0] flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-[#787672] gap-2">
+					<span class="font-medium text-[#1c1c1a]">Martin Bendl</span>
+					<span>Kommunikator, Podcaster &amp; psychologischer Berater</span>
 				</div>
 			</div>
-		</div>
+		</section>
+
+		<!-- Text Section Under Central Image (Über mich) -->
+		<section id="ueber-mich" class="max-w-3xl mx-auto px-6 pb-24 space-y-12">
+			<div>
+				<h2 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight mb-6">
+					Über Martin Bendl
+				</h2>
+				<p class="text-lg md:text-xl text-[#1c1c1a] leading-relaxed font-light mb-6">
+					Im Mittelpunkt meines Wirkens steht stets das Zwischenmenschliche. Ich widme Menschen gerne meine ungeteilte Aufmerksamkeit und mein ehrliches Interesse – sei es am Mikrofon im vertrauten bayerischen Dialekt oder Schritt für Schritt bei einem vertraulichen Gespräch in freier Natur.
+				</p>
+				<p class="text-base text-[#4a4946] leading-relaxed">
+					Das Leben verläuft selten geradlinig. Oft braucht es keine komplizierten Theorien oder belehrende Ratschläge, sondern ein offenes Ohr, einen Raum ohne Masken und jemanden, der zuhört, versteht und neue Denkanstöße gibt.
+				</p>
+			</div>
+
+			<!-- Values / Werte (Structured in the exact style of the reference site) -->
+			<div class="border-t border-[#e7e5e0] pt-8">
+				<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold mb-3">
+					Werte
+				</p>
+				<p class="text-base text-[#1c1c1a] font-medium leading-relaxed">
+					Die folgenden Werte charakterisieren mich und meine Haltung am besten: Authentisch, bodenständig, empathisch, aufmerksam zuhörend, lösungsorientiert und von Herzen nahbar.
+				</p>
+			</div>
+
+			<!-- Background / Werdegang -->
+			<div class="border-t border-[#e7e5e0] pt-8 space-y-4">
+				<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold">
+					Persönliches &amp; Haltung
+				</p>
+				<p class="text-sm md:text-base text-[#4a4946] leading-relaxed">
+					Aufgewachsen im bayerischen Raum ist der Dialekt für mich mehr als nur Sprache: Er ist Heimat, Ehrlichkeit und der kürzeste Weg von Mensch zu Mensch. Diese Unverfälschtheit fließt sowohl in meine Podcast-Gespräche als auch in meine beratende Tätigkeit ein.
+				</p>
+				<p class="text-sm md:text-base text-[#4a4946] leading-relaxed">
+					Wenn Menschen ins Reden kommen, löst sich das Schwere. Genau diesen Raum öffne ich – ganz gleich, ob über Kopfhörer im Alltag oder gehend Seite an Seite.
+				</p>
+			</div>
+		</section>
+
+		<!-- Two Featured Offer Blocks -->
+		<section class="bg-white border-y border-[#e7e5e0] py-20">
+			<div class="max-w-6xl mx-auto px-6">
+				<div class="text-center max-w-2xl mx-auto mb-16">
+					<p class="text-xs uppercase tracking-[0.25em] text-[#787672] font-semibold mb-2">
+						Fokus &amp; Projekte
+					</p>
+					<h2 class="text-3xl md:text-4xl font-serif text-[#1c1c1a]">
+						Zwei Wege des Dialogs
+					</h2>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+					<!-- Block 1: Podcast -->
+					<div id="podcast" class="flex flex-col justify-between border border-[#e7e5e0] bg-[#fbfbfa] p-8 md:p-10 transition-all hover:border-[#1d2633]/30 hover:shadow-md">
+						<div class="space-y-5">
+							<div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#e7e5e0] text-xs font-medium text-[#1d2633]">
+								<span>🎙️</span>
+								<span>Podcast &middot; Bayerischer Dialekt</span>
+							</div>
+
+							<h3 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight">
+								Martin Bendl Podcast
+							</h3>
+
+							<p class="text-sm uppercase tracking-wider text-[#787672] font-medium">
+								G'redt wia d'Leit san: Alltag, Leben &amp; echter Austausch
+							</p>
+
+							<p class="text-base text-[#4a4946] leading-relaxed">
+								Ein authentischer Podcast mitten aus dem Leben. Hier wird nicht um den heißen Brei geredet, sondern so, wie der Schnabel gewachsen ist – im echten bayerischen Dialekt. Über alltägliche Herausforderungen, persönliche Einsichten, Nachdenkliches und Heiteres. Ohne Drehbuch, dafür mit viel Herz, Humor und Tiefe.
+							</p>
+						</div>
+
+						<div class="pt-8 mt-4 border-t border-[#e7e5e0]">
+							<a
+								href="#podcast-listen"
+								class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3.5 bg-[#1d2633] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#2c384a] transition-colors"
+							>
+								<span>Zum Podcast hören</span>
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Block 2: Walk & Talk Psychological Help -->
+					<div id="walk-and-talk" class="flex flex-col justify-between border border-[#e7e5e0] bg-[#fbfbfa] p-8 md:p-10 transition-all hover:border-[#1d2633]/30 hover:shadow-md">
+						<div class="space-y-5">
+							<div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#e7e5e0] text-xs font-medium text-[#1d2633]">
+								<span>🚶</span>
+								<span>Walk &amp; Talk &middot; Psychologische Beratung</span>
+							</div>
+
+							<h3 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight">
+								Gehend sprechen
+							</h3>
+
+							<p class="text-sm uppercase tracking-wider text-[#787672] font-medium">
+								Beratung in Bewegung statt starrer Praxisraum
+							</p>
+
+							<p class="text-base text-[#4a4946] leading-relaxed">
+								Klassische Therapiesitzungen, bei denen man sich frontal gegenübersitzt, können Druck erzeugen. Beim Walk &amp; Talk gehen wir nebeneinander spazieren – durch Parks, Wälder oder die Natur. Durch den gemeinsamen Schritt nach vorne kommen Gedanken in Fluss, der Blick weitet sich und belastende Themen lassen sich ungezwungen und auf Augenhöhe ansprechen.
+							</p>
+						</div>
+
+						<div class="pt-8 mt-4 border-t border-[#e7e5e0]">
+							<a
+								href="#walk-and-talk-booking"
+								class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3.5 bg-[#1d2633] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#2c384a] transition-colors"
+							>
+								<span>Mehr über Walk &amp; Talk</span>
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact / Call to action Quote section -->
+		<section class="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">
+			<blockquote class="text-2xl md:text-3xl font-serif text-[#1c1c1a] italic leading-snug">
+				&bdquo;Manchmal reicht ein kleiner Schritt zur Seite und ein gemeinsamer Spaziergang, um den eigenen Weg wieder klar zu sehen.&ldquo;
+			</blockquote>
+			<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold">
+				Martin Bendl &middot; Wegbegleiter &amp; Zuhörer
+			</p>
+			<div class="pt-4">
+				<a
+					href="mailto:kontakt@martin-bendl.de"
+					class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold px-7 py-3 border border-[#1d2633] text-[#1d2633] hover:bg-[#1d2633] hover:text-white transition-all"
+				>
+					<span>Kontakt aufnehmen</span>
+					<span>&rarr;</span>
+				</a>
+			</div>
+		</section>
 	</main>
+
+	<Footer />
 </Layout>
