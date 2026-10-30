@@ -30,7 +30,7 @@
 			</a>
 		</nav>
 
-		<!-- Action CTA -->
+		<!-- Desktop Action CTA -->
 		<div class="hidden sm:flex items-center gap-3">
 			<a
 				href="#walk-and-talk"
@@ -40,75 +40,161 @@
 			</a>
 		</div>
 
-		<!-- Mobile Menu Button -->
+		<!-- Animated Mobile Burger Button -->
 		<button
 			id="mobile-menu-btn"
 			type="button"
-			class="md:hidden p-2 text-[#1c1c1a] hover:text-[#253243] focus:outline-none"
+			class="md:hidden relative w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none group p-2 -mr-2"
 			aria-label="Menü öffnen"
+			aria-expanded="false"
 		>
-			<svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-			</svg>
-			<svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
-			</svg>
+			<span id="burger-top" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-mid" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-bot" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
 		</button>
 	</div>
 
-	<!-- Mobile Dropdown -->
-	<div id="mobile-menu" class="hidden md:hidden border-b border-[#e7e5e0] bg-[#fbfbfa] px-6 py-5 space-y-4 shadow-lg">
-		<a href="#ueber-mich" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
-			Über mich
-		</a>
-		<a href="#podcast" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
-			🎙️ Podcast (Bayerischer Dialekt)
-		</a>
-		<a href="#walk-and-talk" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
-			🚶 Walk & Talk Beratung
-		</a>
-		<a href="#kontakt" class="block text-base text-[#1c1c1a] py-1 font-medium mobile-link">
-			Kontakt & Impressum
-		</a>
-		<div class="pt-3">
-			<a
-				href="#walk-and-talk"
-				class="block text-center text-xs uppercase tracking-wider font-semibold px-4 py-3 bg-[#1d2633] text-white hover:bg-[#253243] transition-colors mobile-link"
-			>
-				Termin für Walk & Talk anfragen
-			</a>
+	<!-- Mobile Overlay & Floating Dropdown Panel (Positioned on top of content, not pushing down) -->
+	<div
+		id="mobile-menu-backdrop"
+		class="fixed inset-0 top-20 z-40 bg-black/35 backdrop-blur-xs md:hidden opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
+	>
+		<div
+			id="mobile-menu-panel"
+			class="bg-[#fbfbfa] border-b border-[#e7e5e0] px-6 pt-5 pb-8 shadow-2xl transform -translate-y-4 opacity-0 transition-all duration-300 ease-out"
+		>
+			<nav class="flex flex-col space-y-1">
+				<a
+					href="#ueber-mich"
+					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+				>
+					<span>Über mich</span>
+					<span class="text-xs text-[#787672] font-mono">01</span>
+				</a>
+				<a
+					href="#podcast"
+					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+				>
+					<span class="flex items-center gap-2">
+						<span class="text-emerald-600">🎙️</span>
+						<span>Podcast (Bayerischer Dialekt)</span>
+					</span>
+					<span class="text-xs text-[#787672] font-mono">02</span>
+				</a>
+				<a
+					href="#walk-and-talk"
+					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+				>
+					<span class="flex items-center gap-2">
+						<span class="text-emerald-600">🚶</span>
+						<span>Walk & Talk Beratung</span>
+					</span>
+					<span class="text-xs text-[#787672] font-mono">03</span>
+				</a>
+				<a
+					href="#kontakt"
+					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+				>
+					<span>Kontakt &amp; Impressum</span>
+					<span class="text-xs text-[#787672] font-mono">04</span>
+				</a>
+
+				<div class="pt-5">
+					<a
+						href="#walk-and-talk"
+						class="mobile-link block text-center text-xs uppercase tracking-widest font-semibold px-5 py-3.5 bg-[#1d2633] text-white hover:bg-[#2c384a] active:bg-[#141b25] transition-colors"
+					>
+						Termin anfragen
+					</a>
+				</div>
+			</nav>
 		</div>
 	</div>
 </header>
 
 <script>
 	const btn = document.getElementById('mobile-menu-btn');
-	const menu = document.getElementById('mobile-menu');
-	const openIcon = document.getElementById('menu-icon-open');
-	const closeIcon = document.getElementById('menu-icon-close');
+	const backdrop = document.getElementById('mobile-menu-backdrop');
+	const panel = document.getElementById('mobile-menu-panel');
+	const lineTop = document.getElementById('burger-top');
+	const lineMid = document.getElementById('burger-mid');
+	const lineBot = document.getElementById('burger-bot');
 	const links = document.querySelectorAll('.mobile-link');
 
-	if (btn && menu && openIcon && closeIcon) {
-		btn.addEventListener('click', () => {
-			const isHidden = menu.classList.contains('hidden');
-			if (isHidden) {
-				menu.classList.remove('hidden');
-				openIcon.classList.add('hidden');
-				closeIcon.classList.remove('hidden');
-			} else {
-				menu.classList.add('hidden');
-				openIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-			}
-		});
+	let isOpen = false;
 
-		links.forEach((l) => {
-			l.addEventListener('click', () => {
-				menu.classList.add('hidden');
-				openIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-			});
-		});
+	function openMenu() {
+		isOpen = true;
+		btn?.setAttribute('aria-expanded', 'true');
+		btn?.setAttribute('aria-label', 'Menü schließen');
+
+		// Backdrop animation
+		backdrop?.classList.remove('opacity-0', 'pointer-events-none');
+		backdrop?.classList.add('opacity-100', 'pointer-events-auto');
+
+		// Panel slide-down animation
+		panel?.classList.remove('-translate-y-4', 'opacity-0');
+		panel?.classList.add('translate-y-0', 'opacity-100');
+
+		// Burger to X animation
+		lineTop?.classList.add('rotate-45', 'translate-y-[7.5px]');
+		lineMid?.classList.add('opacity-0', 'scale-x-0');
+		lineBot?.classList.add('-rotate-45', '-translate-y-[7.5px]');
+
+		// Lock body scroll
+		document.body.style.overflow = 'hidden';
 	}
-</script>
 
+	function closeMenu() {
+		isOpen = false;
+		btn?.setAttribute('aria-expanded', 'false');
+		btn?.setAttribute('aria-label', 'Menü öffnen');
+
+		// Backdrop animation
+		backdrop?.classList.remove('opacity-100', 'pointer-events-auto');
+		backdrop?.classList.add('opacity-0', 'pointer-events-none');
+
+		// Panel slide-up animation
+		panel?.classList.remove('translate-y-0', 'opacity-100');
+		panel?.classList.add('-translate-y-4', 'opacity-0');
+
+		// X back to burger animation
+		lineTop?.classList.remove('rotate-45', 'translate-y-[7.5px]');
+		lineMid?.classList.remove('opacity-0', 'scale-x-0');
+		lineBot?.classList.remove('-rotate-45', '-translate-y-[7.5px]');
+
+		// Unlock body scroll
+		document.body.style.overflow = '';
+	}
+
+	function toggleMenu() {
+		if (isOpen) {
+			closeMenu();
+		} else {
+			openMenu();
+		}
+	}
+
+	btn?.addEventListener('click', toggleMenu);
+
+	// Close when clicking outside on the backdrop
+	backdrop?.addEventListener('click', (e) => {
+		if (e.target === backdrop) {
+			closeMenu();
+		}
+	});
+
+	// Close when clicking any menu link
+	links.forEach((l) => {
+		l.addEventListener('click', () => {
+			closeMenu();
+		});
+	});
+
+	// Close on Escape key
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && isOpen) {
+			closeMenu();
+		}
+	});
+</script>
