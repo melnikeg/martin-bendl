@@ -10,6 +10,8 @@ const {
 	title = 'Martin Bendl — Persönlicher Dialog, Podcast & Beratung',
 	description = 'Offizielle Website von Martin Bendl: Authentischer Podcast auf bayerischem Dialekt und psychologische Unterstützung im Gehen (Walk & Talk).'
 } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -17,14 +19,14 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
+		<link rel="icon" href={`${baseUrl}/favicon.ico`} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="/martin-bendl.jpg" />
+		<meta property="og:image" content={`${baseUrl}/martin-bendl.jpg`} />
 		<meta property="og:type" content="website" />
 		
 		<!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans -->
