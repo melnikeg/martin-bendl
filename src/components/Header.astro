@@ -10,8 +10,17 @@ const storyLinkClass = isStoryPage
 const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-olive)] transition-colors';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300" id="site-header">
-	<div class="max-w-[1280px] mx-auto px-6 lg:pl-28 lg:pr-3.5 h-20 md:h-14 flex items-center justify-between">
+<header
+	class:list={[
+		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
+		isStoryPage
+			? 'bg-[var(--color-warm-bg)] backdrop-blur-md shadow-sm'
+			: 'bg-transparent max-md:bg-[var(--color-warm-bg)]',
+	]}
+	data-story-page={isStoryPage ? 'true' : undefined}
+	id="site-header"
+>
+	<div class="max-w-[1280px] mx-auto px-6 lg:pl-28 lg:pr-3.5 h-full flex items-center justify-between">
 		<!-- Brand / Logo with mountain SVG -->
 		<a href={homeHref} class="group flex items-center gap-3">
 			<img src={`${baseUrl}/berg.svg`} class="w-16 h-6 object-contain" alt="" aria-hidden="true" />
@@ -102,12 +111,42 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 	const lineBot = document.getElementById('burger-bot');
 	const links = document.querySelectorAll('.mobile-link');
 
+	const header = document.getElementById('site-header');
+	const isStoryPage = header?.dataset.storyPage === 'true';
 	let isOpen = false;
+	const isMobileViewport = () => window.matchMedia('(max-width: 767px)').matches;
+	let headerBackgroundClass = isStoryPage || isMobileViewport()
+		? 'bg-[var(--color-warm-bg)]'
+		: 'bg-transparent';
+	let bodyOverflowBeforeMenu = '';
+
+	const headerBackgroundClasses = ['bg-transparent', 'bg-[var(--color-warm-bg)]', 'bg-[var(--color-warm-bg)]/90'];
+
+	function updateHeaderAppearance() {
+		const isScrolled = window.scrollY > 50;
+		const hasFixedBackground = isOpen || isStoryPage || isMobileViewport();
+		const nextBackgroundClass = hasFixedBackground
+			? 'bg-[var(--color-warm-bg)]'
+			: isScrolled
+				? 'bg-[var(--color-warm-bg)]/90'
+				: 'bg-transparent';
+
+		if (headerBackgroundClass !== nextBackgroundClass) {
+			header?.classList.remove(...headerBackgroundClasses);
+			header?.classList.add(nextBackgroundClass);
+			headerBackgroundClass = nextBackgroundClass;
+		}
+
+		header?.classList.toggle('backdrop-blur-md', hasFixedBackground || isScrolled);
+		header?.classList.toggle('shadow-sm', hasFixedBackground || isScrolled);
+		header?.classList.toggle('transition-none', isOpen);
+	}
 
 	function openMenu() {
 		isOpen = true;
 		btn?.setAttribute('aria-expanded', 'true');
 		btn?.setAttribute('aria-label', 'Menü schließen');
+		updateHeaderAppearance();
 
 		backdrop?.classList.remove('opacity-0', 'pointer-events-none');
 		backdrop?.classList.add('opacity-100', 'pointer-events-auto');
@@ -119,6 +158,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		lineMid?.classList.add('opacity-0', 'scale-x-0');
 		lineBot?.classList.add('-rotate-45', '-translate-y-[7.5px]');
 
+		bodyOverflowBeforeMenu = document.body.style.overflow;
 		document.body.style.overflow = 'hidden';
 	}
 
@@ -126,6 +166,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		isOpen = false;
 		btn?.setAttribute('aria-expanded', 'false');
 		btn?.setAttribute('aria-label', 'Menü öffnen');
+		updateHeaderAppearance();
 
 		backdrop?.classList.remove('opacity-100', 'pointer-events-auto');
 		backdrop?.classList.add('opacity-0', 'pointer-events-none');
@@ -137,7 +178,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		lineMid?.classList.remove('opacity-0', 'scale-x-0');
 		lineBot?.classList.remove('-rotate-45', '-translate-y-[7.5px]');
 
-		document.body.style.overflow = '';
+		document.body.style.overflow = bodyOverflowBeforeMenu;
 	}
 
 	function toggleMenu() {
@@ -168,15 +209,10 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		}
 	});
 
-	// Header background on scroll
-	const header = document.getElementById('site-header');
 	window.addEventListener('scroll', () => {
-		if (window.scrollY > 50) {
-			header?.classList.add('bg-[var(--color-warm-bg)]/90', 'backdrop-blur-md', 'shadow-sm');
-			header?.classList.remove('bg-transparent');
-		} else {
-			header?.classList.remove('bg-[var(--color-warm-bg)]/90', 'backdrop-blur-md', 'shadow-sm');
-			header?.classList.add('bg-transparent');
-		}
-	});
+		updateHeaderAppearance();
+	}, { passive: true });
+	window.addEventListener('resize', updateHeaderAppearance);
+
+	updateHeaderAppearance();
 </script>
