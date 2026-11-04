@@ -3,16 +3,22 @@
 @theme {
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --color-brand-navy: #1d2633;
-  --color-brand-dark: #141b25;
-  --color-brand-light: #fbfbfa;
-  --color-brand-sand: #dfdfdc;
-  --color-brand-accent: #253243;
+  --color-olive: #5d8000;
+  --color-olive-dark: #486400;
+  --color-olive-light: #709400;
+  --color-warm-bg: #f8f5ef;
+  --color-warm-card: #ffffff;
+  --color-text-primary: #2c2c2a;
+  --color-text-secondary: #5a5a56;
+  --color-text-muted: #8a8a84;
+  --color-border-soft: #e8e4dc;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: var(--font-sans);
-  background-color: #fbfbfa;
-  color: #1a1a1a;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-	title = 'Martin Bendl — Persönlicher Dialog, Podcast & Beratung',
-	description = 'Offizielle Website von Martin Bendl: Authentischer Podcast auf bayerischem Dialekt und psychologische Unterstützung im Gehen (Walk & Talk).'
+	title = 'Martin Bendl — Mensch. Heimat. Geschichten.',
+	description = 'Ich bin Martin Bendl – Papa, Bayerwäldler, Podcaster, Hobbyfotograf, Freund und jemand, der gerne genauer hinhört.'
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -34,7 +34,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 	</head>
-	<body class="min-h-screen bg-[#fbfbfa] text-[#1c1c1a] antialiased selection:bg-[#1d2633] selection:text-white flex flex-col justify-between">
+	<body class="min-h-screen bg-[var(--color-warm-bg)] font-sans text-[var(--color-text-primary)] antialiased selection:bg-[var(--color-olive)] selection:text-white flex flex-col justify-between">
 		<slot />
 	</body>
 </html>

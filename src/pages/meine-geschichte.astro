@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+	title="Meine Geschichte — Martin Bendl"
+	description="Im Herzen des Bayerischen Waldes geboren, aufgewachsen und zu Hause. Ein Stück meines Weges als Papa, Freund und Waidler."
+>
+	<Header />
+
+	<main class="w-full bg-[#f8f2e7] pt-20 md:pt-14">
+		<section class="mx-auto grid max-w-[1280px] grid-cols-[minmax(0,1fr)_auto] items-center gap-5 px-6 pb-8 pt-6 sm:gap-10 md:px-10 md:pb-10 md:pt-8">
+			<div>
+				<p class="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[var(--color-olive)]">Über mich</p>
+				<h1 class="mb-4 max-w-xl text-[2.4rem] font-bold leading-[1.02] tracking-tight text-[var(--color-text-primary)] sm:text-5xl md:text-6xl">
+					Meine<br />Geschichte.
+				</h1>
+				<p class="max-w-sm text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
+					Im Herzen des Bayerischen Waldes geboren, aufgewachsen und zu Hause.
+				</p>
+				<a
+					href="#mein-weg"
+					class="group mt-6 inline-flex items-center gap-2 border-b border-[var(--color-text-primary)]/30 pb-1 text-xs font-semibold text-[var(--color-olive-dark)] transition-colors hover:border-[var(--color-olive)] hover:text-[var(--color-olive)] sm:mt-8"
+				>
+					Ein Stück meines Weges
+					<svg class="h-4 w-4 transition-transform group-hover:translate-y-0.5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+						<path d="M10 3.5v12m-5-5 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</a>
+			</div>
+
+			<figure class="justify-self-end">
+				<img
+					src={`${baseUrl}/martin-bendl.png`}
+					alt="Martin Bendl lächelt in die Kamera"
+					class="aspect-[0.82] w-[clamp(8.125rem,24vw,17rem)] object-cover object-center"
+					width="580"
+					height="683"
+					fetchpriority="high"
+				/>
+				<figcaption class="mt-2 text-center text-[0.6rem] text-[var(--color-text-muted)]">
+					Martin · daheim im Woid
+				</figcaption>
+			</figure>
+		</section>
+
+		<section id="mein-weg" class="scroll-mt-20 px-6 pb-12 pt-8 md:px-10 md:pb-16 md:pt-4">
+			<article class="mx-auto max-w-[31rem]">
+				<h2 class="mb-6 font-serif text-[1.45rem] leading-[1.2] text-[var(--color-text-primary)] sm:text-[1.75rem]">
+					Ich weiß, wie es ist, einen geliebten Menschen zu verlieren und am nächsten Morgen wieder als Papa gebraucht zu werden.
+				</h2>
+				<div class="space-y-4 text-[0.8rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+					<p>
+						Ich bin Martin Bendl. Im Herzen des Bayerischen Waldes geboren, aufgewachsen und bis heute zu Hause. Verwitwet, alleinerziehender Vater und ein Mensch, dessen Geschichte einige ungeplante Wendungen genommen hat.
+					</p>
+					<p>
+						Der Tod meiner Partnerin gehört zu dieser Geschichte. Vieles darf seinen Platz neu finden: der Alltag, eigene Wünsche und irgendwann auch der Blick nach vorne.
+					</p>
+					<p class="font-semibold leading-relaxed text-[var(--color-olive-dark)]">
+						Mittendrin meine Tochter.<br />
+						Ihre Kindheit findet jetzt statt.
+					</p>
+					<p>
+						Mit Verantwortung, ganz normalen Alltagssorgen und zum Glück immer wieder etwas zu lachen.
+					</p>
+					<p>
+						Meine Familie gehört zum Wertvollsten in meinem Leben. Ich bin ein Familienmensch und schätze gemeinsame Zeit, Nähe und das Gefühl, füreinander da zu sein. Auch meine Freunde dürfen auf mich zählen, wenn sie ein offenes Gespräch brauchen oder jemanden, der mit anpackt.
+					</p>
+				</div>
+			</article>
+		</section>
+
+		<section class="bg-[#eee5d3] px-6 py-12 md:py-14">
+			<div class="mx-auto grid max-w-[1280px] gap-7 md:grid-cols-[0.8fr_1.2fr] md:gap-16 md:px-10">
+				<div>
+					<p class="mb-3 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[var(--color-olive)]">Menschen und Gespräche</p>
+					<h2 class="mb-3 max-w-xs text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+						Meine Heimat hört man mir an.
+					</h2>
+					<p class="font-serif text-xl">Unter uns g'sogt</p>
+				</div>
+				<div class="space-y-4 text-[0.78rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+					<p>
+						Menschen und ihre Geschichten interessieren mich. Ich mag Gespräche, die über Oberflächlichkeiten hinausgehen. In denen Gedanken Platz bekommen, die noch nicht fertig sortiert sind. Und Fragen, auf die es nicht sofort eine Antwort gibt. Manchmal tut es auch einfach gut, gemeinsam über das Chaos des Lebens zu lachen.
+					</p>
+					<p>
+						Ich spreche bayerisch, wie mir der Schnabel gewachsen ist. Genau so darf man mich auch im Podcast „Unter uns g'sogt“ erleben. Gemeinsam mit Jetti spreche ich über Liebe, Beziehungen, Zweifel und das Leben, wie es uns begegnet. Bayerischer Real Talk mit persönlichen Gedanken und einer guten Portion Humor.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<img
+			src={`${baseUrl}/wald.jpg`}
+			alt="Farn und Moos im Wald"
+			class="h-20 w-full object-cover object-center sm:h-28 md:h-32"
+			width="2048"
+			height="200"
+			loading="lazy"
+		/>
+
+		<section class="px-6 py-12 md:py-16">
+			<div class="mx-auto max-w-[1280px] md:px-10">
+				<div class="grid gap-7 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+					<div>
+						<p class="mb-3 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[var(--color-olive)]">Natur und Fotografie</p>
+						<h2 class="max-w-xs text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+							Draußen bekomme ich den Kopf frei.
+						</h2>
+					</div>
+					<div class="space-y-4 text-[0.78rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+						<p>
+							Wenn ich selbst den Kopf frei bekommen möchte, zieht es mich nach draußen. Auf Mountainbike, zum Wandern, in die Wälder und Berge meiner Heimat. Und genauso gerne nehme ich dabei die Kamera in die Hand.
+						</p>
+						<p>
+							Ich fotografiere meine Heimat von Herzen gern: Landschaften, Stimmungen, besondere Momente und die kleinen Details, an denen man sonst vielleicht vorbeigehen würde. Für mich bedeutet Hobbyfotografie, einen Moment bewusst wahrzunehmen und festzuhalten. Viele dieser Bilder und Einblicke in meine Touren findest du auf meinem Instagram-Account @woidstrawanza.
+						</p>
+						<a
+							href="https://www.instagram.com/woidstrawanza"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group inline-flex items-center gap-1 border-b border-[var(--color-text-primary)]/30 pb-1 text-xs font-semibold text-[var(--color-olive-dark)] hover:border-[var(--color-olive)] hover:text-[var(--color-olive)]"
+						>
+							@woidstrawanza
+							<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M5 11 11 5M5.5 5H11v5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="mt-10 grid gap-8 border-t border-[var(--color-border-soft)] pt-8 sm:grid-cols-2 sm:gap-12">
+					<article>
+						<p class="mb-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[var(--color-olive)]">Gedanken teilen</p>
+						<h2 class="mb-3 text-lg font-bold tracking-tight">Herz.ensmenschen</h2>
+						<p class="mb-3 text-[0.78rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+							Auf meinem Instagram-Account @herz.ensmenschen teile ich Gedanken über Liebe, Beziehungen und das Miteinander. Meine Beiträge sollen berühren, zum Nachdenken anregen und manchmal genau die Worte finden, die einem selbst gerade fehlen.
+						</p>
+						<a
+							href="https://www.instagram.com/herz.ensmenschen"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group inline-flex items-center gap-1 border-b border-[var(--color-text-primary)]/30 pb-1 text-xs font-semibold text-[var(--color-olive-dark)] hover:border-[var(--color-olive)] hover:text-[var(--color-olive)]"
+						>
+							@herz.ensmenschen
+							<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M5 11 11 5M5.5 5H11v5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</a>
+					</article>
+
+					<article>
+						<p class="mb-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[var(--color-olive)]">Engagement in der Heimat</p>
+						<h2 class="mb-3 text-lg font-bold tracking-tight">Bayerwald Award</h2>
+						<p class="text-[0.78rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+							Als Juryleiter beim Bayerwald Award darf ich außerdem Menschen kennenlernen, die unsere Heimat mit Ideen, Leidenschaft und Engagement prägen. Ihre Geschichten sichtbar zu machen und ihnen Wertschätzung entgegenzubringen, liegt mir besonders am Herzen. Denn unsere Heimat lebt von den Menschen, die hier etwas bewegen.
+						</p>
+					</article>
+				</div>
+
+				<div class="mt-10 border-t border-[var(--color-border-soft)] py-8 text-center">
+					<h2 class="mx-auto mb-2 max-w-[28rem] text-xl font-bold tracking-tight sm:text-2xl">
+						Meine eigene Geschichte<br />schreibe ich weiter.
+					</h2>
+					<p class="mb-1 text-xs text-[var(--color-text-secondary)] sm:text-sm">Als Papa. Als Freund. Als Waidler vom Woid.</p>
+					<p class="text-xs text-[var(--color-text-secondary)] sm:text-sm">Mit Ideen, Fragen, Umwegen und der Lust, Neues auszuprobieren.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-[#e4e4cc] px-6 py-10 md:py-12">
+			<div class="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-[1fr_auto] md:px-10">
+				<div>
+					<p class="mb-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[var(--color-olive)]">Offen Denken</p>
+					<h2 class="mb-3 max-w-xl text-xl font-bold leading-tight sm:text-2xl">
+						Persönliches Sparring für emotionale Klarheit.
+					</h2>
+					<div class="max-w-2xl space-y-3 text-[0.78rem] leading-[1.65] text-[var(--color-text-secondary)] sm:text-sm">
+						<p>
+							Aus meiner Freude an echten Gesprächen ist inzwischen auch etwas Neues entstanden: persönliches Sparring für Menschen, die Gedanken sortieren, offen reden oder eine neue Perspektive gewinnen möchten.
+						</p>
+						<p>
+							Warum es manchmal guttun kann, mit jemandem zu sprechen, der nicht Teil der eigenen Geschichte ist, erzähle ich auf Offen Denken.
+						</p>
+					</div>
+				</div>
+				<a
+					href="http://offendenken.de/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group inline-flex w-fit items-center gap-3 rounded-full bg-[var(--color-olive)] px-5 py-3 text-xs font-semibold text-white transition-colors hover:bg-[var(--color-olive-dark)]"
+				>
+					Offen Denken entdecken
+					<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+						<path d="M3.5 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="border-t border-[var(--color-border-soft)] bg-[#f8f2e7] px-6 py-4">
+		<div class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 text-[0.55rem] text-[var(--color-text-muted)]">
+			<span>Martin Bendl</span>
+			<span>Mensch. Heimat. Geschichten.</span>
+		</div>
+	</footer>
+</Layout>

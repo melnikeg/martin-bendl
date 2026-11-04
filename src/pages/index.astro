@@ -2,189 +2,203 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
-	title="Martin Bendl — Offizielle Website | Podcast & Walk & Talk"
-	description="Offizielle Website von Martin Bendl: Authentische Lebensgespräche auf bayerischem Dialekt im Podcast und psychologische Beratung in Bewegung (Walk & Talk)."
+	title="Martin Bendl — Mensch. Heimat. Geschichten."
+	description="Martin Bendl: Im Herzen des Bayerischen Waldes geboren, aufgewachsen und bis heute zu Hause. Verwitwet und alleinerziehender Vater."
 >
 	<Header />
 
 	<main class="w-full">
-		<!-- Hero Section -->
-		<section class="max-w-4xl mx-auto px-6 pt-12 md:pt-16 pb-8 text-center">
-			<p class="text-xs md:text-sm uppercase tracking-[0.25em] text-[#787672] font-semibold mb-3">
-				Persönlicher Dialog &middot; Bayern
-			</p>
-			<h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#1c1c1a] tracking-tight leading-[1.08] mb-6">
-				Martin Bendl
-			</h1>
-			<p class="text-lg md:text-xl text-[#575653] font-light max-w-2xl mx-auto leading-relaxed">
-				Menschlichkeit im Mittelpunkt: Gespräche, die berühren, und Begleitung, die bewegt.
-			</p>
-		</section>
+		<!-- ===== HERO SECTION ===== -->
+		<section class="relative mx-auto flex min-h-[100vh] w-full max-w-[1280px] items-center overflow-hidden pt-20 max-md:min-h-[calc(100vh-2rem)]">
+			<div
+				class="absolute inset-0 bg-[image:var(--hero-image)] bg-left-top bg-no-repeat bg-cover max-md:bg-[image:linear-gradient(to_bottom,transparent_25%,var(--color-warm-bg)_42%),var(--hero-image)] max-md:bg-[position:center,8%_top] max-md:bg-[length:100%_100%,auto_60vh] max-md:bg-no-repeat max-md:bg-[var(--color-warm-bg)] min-[1536px]:bg-left-top"
+				style={`--hero-image: url("${baseUrl}/martin-bendl-hero-background.webp?v=1")`}
+				role="img"
+				aria-label="Martin Bendl in einer Landschaft des Bayerischen Waldes"
+			></div>
 
-		<!-- Central Image Section -->
-		<section class="max-w-5xl mx-auto px-6 pb-16">
-			<div class="relative overflow-hidden rounded-none border border-[#e7e5e0] shadow-sm bg-white">
-				<img
-					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/martin-bendl.jpg`}
-					alt="Porträt von Martin Bendl"
-					class="w-full h-auto max-h-[640px] object-cover object-center transition-transform duration-700 hover:scale-[1.01]"
-					loading="eager"
-				/>
-				<div class="p-4 md:p-5 bg-white border-t border-[#e7e5e0] flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-[#787672] gap-2">
-					<span class="font-medium text-[#1c1c1a]">Martin Bendl</span>
-					<span>Kommunikator, Podcaster &amp; psychologischer Berater</span>
-				</div>
-			</div>
-		</section>
-
-		<!-- Text Section Under Central Image (Über mich) -->
-		<section id="ueber-mich" class="max-w-3xl mx-auto px-6 pb-24 space-y-12">
-			<div>
-				<h2 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight mb-6">
-					Über Martin Bendl
-				</h2>
-				<p class="text-lg md:text-xl text-[#1c1c1a] leading-relaxed font-light mb-6">
-					Im Mittelpunkt meines Wirkens steht stets das Zwischenmenschliche. Ich widme Menschen gerne meine ungeteilte Aufmerksamkeit und mein ehrliches Interesse – sei es am Mikrofon im vertrauten bayerischen Dialekt oder Schritt für Schritt bei einem vertraulichen Gespräch in freier Natur.
-				</p>
-				<p class="text-base text-[#4a4946] leading-relaxed">
-					Das Leben verläuft selten geradlinig. Oft braucht es keine komplizierten Theorien oder belehrende Ratschläge, sondern ein offenes Ohr, einen Raum ohne Masken und jemanden, der zuhört, versteht und neue Denkanstöße gibt.
-				</p>
-			</div>
-
-			<!-- Values / Werte (Structured in the exact style of the reference site) -->
-			<div class="border-t border-[#e7e5e0] pt-8">
-				<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold mb-3">
-					Werte
-				</p>
-				<p class="text-base text-[#1c1c1a] font-medium leading-relaxed">
-					Die folgenden Werte charakterisieren mich und meine Haltung am besten: Authentisch, bodenständig, empathisch, aufmerksam zuhörend, lösungsorientiert und von Herzen nahbar.
-				</p>
-			</div>
-
-			<!-- Background / Werdegang -->
-			<div class="border-t border-[#e7e5e0] pt-8 space-y-4">
-				<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold">
-					Persönliches &amp; Haltung
-				</p>
-				<p class="text-sm md:text-base text-[#4a4946] leading-relaxed">
-					Aufgewachsen im bayerischen Raum ist der Dialekt für mich mehr als nur Sprache: Er ist Heimat, Ehrlichkeit und der kürzeste Weg von Mensch zu Mensch. Diese Unverfälschtheit fließt sowohl in meine Podcast-Gespräche als auch in meine beratende Tätigkeit ein.
-				</p>
-				<p class="text-sm md:text-base text-[#4a4946] leading-relaxed">
-					Wenn Menschen ins Reden kommen, löst sich das Schwere. Genau diesen Raum öffne ich – ganz gleich, ob über Kopfhörer im Alltag oder gehend Seite an Seite.
-				</p>
-			</div>
-		</section>
-
-		<!-- Two Featured Offer Blocks -->
-		<section class="bg-white border-y border-[#e7e5e0] py-20">
-			<div class="max-w-6xl mx-auto px-6">
-				<div class="text-center max-w-2xl mx-auto mb-16">
-					<p class="text-xs uppercase tracking-[0.25em] text-[#787672] font-semibold mb-2">
-						Fokus &amp; Projekte
+			<!-- Hero text content (right side on desktop) -->
+			<div class="relative z-10 mt-auto flex w-full flex-col justify-start self-stretch px-6 py-12 md:mt-0 md:ml-[40%] md:w-[60%] md:py-0 lg:px-12 xl:px-16 max-md:ml-0 max-md:pt-[40vh]">
+				<div class="max-w-xl">
+					<h1 class="hero-title text-5xl sm:text-6xl md:text-6.5xl lg:text-7xl xl:text-8xl font-sans font-bold text-[var(--color-text-primary)] leading-[0.98] tracking-tight mb-6 md:mb-6">
+						<span class="block">Mensch.</span>
+						<span class="block">Heimat.</span>
+						<span class="relative block w-fit">Geschichten.<svg class="absolute right-0 bottom-[-0.12em] h-[0.14em] w-[76%] overflow-visible text-[var(--color-olive)]" viewBox="0 0 300 18" fill="none" aria-hidden="true">
+							<path d="M3 13C79 1 199 1 297 12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+						</svg></span>
+					</h1>
+					<p class="text-base sm:text-lg md:text-lg lg:text-xl text-[var(--color-text-secondary)] leading-[1.2] mb-5 md:mb-5 max-w-md">
+						Im Herzen des Bayerischen Waldes geboren, aufgewachsen und bis heute zu Hause.
 					</p>
-					<h2 class="text-3xl md:text-4xl font-serif text-[#1c1c1a]">
-						Zwei Wege des Dialogs
-					</h2>
+
+					<!-- CTA Button -->
+					<a
+						href="#meine-geschichte"
+						class="inline-flex items-center gap-3 px-7 py-2.5 bg-[var(--color-olive)] text-white rounded-full text-base font-medium hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5"
+					>
+						Meine Geschichte entdecken
+						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
 				</div>
 
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-					<!-- Block 1: Podcast -->
-					<div id="podcast" class="flex flex-col justify-between border border-[#e7e5e0] bg-[#fbfbfa] p-8 md:p-10 transition-all hover:border-[#1d2633]/30 hover:shadow-md">
-						<div class="space-y-5">
-							<div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#e7e5e0] text-xs font-medium text-[#1d2633]">
-								<span>🎙️</span>
-								<span>Podcast &middot; Bayerischer Dialekt</span>
-							</div>
-
-							<h3 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight">
-								Unter uns gsogt
-							</h3>
-
-							<p class="text-sm uppercase tracking-wider text-[#787672] font-medium">
-								Der Podcast von Martin Bendl &middot; Alltag, Leben &amp; echter Austausch
-							</p>
-
-							<p class="text-base text-[#4a4946] leading-relaxed">
-								Ein authentischer Podcast mitten aus dem Leben. Hier wird nicht um den heißen Brei geredet, sondern so, wie der Schnabel gewachsen ist – im echten bayerischen Dialekt. Über alltägliche Herausforderungen, persönliche Einsichten, Nachdenkliches und Heiteres. Ohne Drehbuch, dafür mit viel Herz, Humor und Tiefe.
-							</p>
-						</div>
-
-						<div class="pt-8 mt-4 border-t border-[#e7e5e0]">
+				<!-- Dock Buttons Row -->
+				<div class="mt-8 md:mt-10">
+					<nav id="dock" class="relative flex items-center justify-start gap-x-3 max-[1100px]:flex-wrap max-[1100px]:gap-y-4 min-[1024px]:max-[1100px]:flex-nowrap min-[1024px]:max-[1100px]:gap-x-3" aria-label="Martin Bendl online">
+						<!-- Unter uns g'sogt (Podcast) -->
+						<span class="inline-flex items-center gap-3">
 							<a
 								href="https://unter-uns-gsogt.podigee.io"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3.5 bg-[#1d2633] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#2c384a] transition-colors"
+								aria-label="Unter uns g'sogt Podcast öffnen"
+								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
 							>
-								<span>Podcast auf Podigee hören</span>
-								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-								</svg>
+								<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full bg-[var(--color-olive)] text-white outline outline-1 outline-white/40 outline-offset-1" aria-hidden="true">
+									<svg class="h-[1.2rem] w-[1.2rem]" viewBox="0 0 24 24" fill="none">
+										<rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.5 11a5.5 5.5 0 0 0 11 0M12 16.5V21m-3 0h6" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+								<span class="relative pb-[0.3rem] font-medium italic">Unter uns g'sogt<svg class="absolute right-0 bottom-0 h-[0.45rem] w-full overflow-visible" viewBox="0 0 112 8" aria-hidden="true"><path d="M2 5c28-5 72-4 108 0" class="fill-none stroke-[#c5cb23] stroke-[2.5] stroke-linecap-round" /></svg></span>
 							</a>
-						</div>
-					</div>
+							<span class="h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
+						</span>
 
-					<!-- Block 2: Walk & Talk Psychological Help -->
-					<div id="walk-and-talk" class="flex flex-col justify-between border border-[#e7e5e0] bg-[#fbfbfa] p-8 md:p-10 transition-all hover:border-[#1d2633]/30 hover:shadow-md">
-						<div class="space-y-5">
-							<div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#e7e5e0] text-xs font-medium text-[#1d2633]">
-								<span>🚶</span>
-								<span>Walk &amp; Talk &middot; Psychologische Beratung</span>
-							</div>
-
-							<h3 class="text-2xl md:text-3xl font-serif text-[#1c1c1a] tracking-tight">
-								Gehend sprechen
-							</h3>
-
-							<p class="text-sm uppercase tracking-wider text-[#787672] font-medium">
-								Offen Denken &middot; Beratung in Bewegung statt starrer Praxisraum
-							</p>
-
-							<p class="text-base text-[#4a4946] leading-relaxed">
-								Klassische Therapiesitzungen, bei denen man sich frontal gegenübersitzt, können Druck erzeugen. Beim Walk &amp; Talk gehen wir nebeneinander spazieren – durch Parks, Wälder oder die Natur. Durch den gemeinsamen Schritt nach vorne kommen Gedanken in Fluss, der Blick weitet sich und belastende Themen lassen sich ungezwungen und auf Augenhöhe ansprechen.
-							</p>
-						</div>
-
-						<div class="pt-8 mt-4 border-t border-[#e7e5e0]">
+						<!-- @woidstrawanza (Instagram) -->
+						<span class="inline-flex items-center gap-3">
 							<a
-								href="http://offendenken.de/"
+								href="https://www.instagram.com/woidstrawanza"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3.5 bg-[#1d2633] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#2c384a] transition-colors"
+								aria-label="Instagram-Profil @woidstrawanza öffnen"
+								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
 							>
-								<span>Zu offendenken.de</span>
-								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-								</svg>
+								<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full border border-[#9db53f] bg-[var(--color-olive)] text-white" aria-hidden="true">
+									<svg viewBox="0 0 24 24" fill="none">
+										<rect x="3.5" y="3.5" width="17" height="17" rx="4" class="fill-none stroke-current stroke-[1.7]" />
+										<circle cx="12" cy="12" r="4" class="fill-none stroke-current stroke-[1.7]" />
+										<circle cx="17.5" cy="6.8" r="1" class="fill-current stroke-none" />
+									</svg>
+								</span>
+								<span class="relative pb-[0.3rem] font-medium italic">@woidstrawanza<svg class="absolute right-0 bottom-0 h-[0.45rem] w-full overflow-visible" viewBox="0 0 112 8" aria-hidden="true"><path d="M2 5c28-5 72-4 108 0" class="fill-none stroke-[#c5cb23] stroke-[2.5] stroke-linecap-round" /></svg></span>
 							</a>
-						</div>
-					</div>
+							<span class="h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
+						</span>
+
+						<!-- @herz.ensmenschen (Instagram) -->
+						<a
+							href="https://www.instagram.com/herz.ensmenschen"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Instagram-Profil @herz.ensmenschen öffnen"
+							class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
+						>
+							<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full border border-[#9db53f] bg-[var(--color-olive)] text-white" aria-hidden="true">
+								<svg viewBox="0 0 24 24" fill="none">
+									<rect x="3.5" y="3.5" width="17" height="17" rx="4" class="fill-none stroke-current stroke-[1.7]" />
+									<circle cx="12" cy="12" r="4" class="fill-none stroke-current stroke-[1.7]" />
+									<circle cx="17.5" cy="6.8" r="1" class="fill-current stroke-none" />
+								</svg>
+							</span>
+							<span class="relative pb-[0.3rem] font-medium italic">@herz.ensmenschen<svg class="absolute right-0 bottom-0 h-[0.45rem] w-full overflow-visible" viewBox="0 0 112 8" aria-hidden="true"><path d="M2 5c28-5 72-4 108 0" class="fill-none stroke-[#c5cb23] stroke-[2.5] stroke-linecap-round" /></svg></span>
+						</a>
+					</nav>
 				</div>
 			</div>
 		</section>
 
-		<!-- Contact / Call to action Quote section -->
-		<section class="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">
-			<blockquote class="text-2xl md:text-3xl font-serif text-[#1c1c1a] italic leading-snug">
-				&bdquo;Manchmal reicht ein kleiner Schritt zur Seite und ein gemeinsamer Spaziergang, um den eigenen Weg wieder klar zu sehen.&ldquo;
-			</blockquote>
-			<p class="text-xs uppercase tracking-widest text-[#787672] font-semibold">
-				Martin Bendl &middot; Wegbegleiter &amp; Zuhörer
-			</p>
-			<div class="pt-4">
-				<a
-					href="mailto:kontakt@martin-bendl.de"
-					class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold px-7 py-3 border border-[#1d2633] text-[#1d2633] hover:bg-[#1d2633] hover:text-white transition-all"
-				>
-					<span>Kontakt aufnehmen</span>
-					<span>&rarr;</span>
-				</a>
+		<!-- ===== OFFEN DENKEN CARD (overlapping hero bottom) ===== -->
+		<section class="relative z-20 -mt-8 md:-mt-55 pb-17">
+			<div class="mx-auto w-[calc(100%-3rem)] max-w-[1220px] min-[1024px]:ml-10 min-[1024px]:mr-6 min-[1024px]:w-[calc(100%-4rem)] min-[1280px]:mx-auto min-[1280px]:w-[calc(100%-5rem)]">
+				<div class="bg-[#fff5eb] rounded-2xl shadow-xl shadow-black/5 border border-[var(--color-border-soft)] p-8 md:pl-10 md:pr-0 md:pt-5 md:pb-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+					<div class="max-w-[43rem] min-[1536px]:max-w-[55rem]">
+						<p class="text-xs uppercase tracking-[0.2em] text-[var(--color-olive)] font-semibold mb-2">
+							Offen Denken
+						</p>
+						<h2 class="text-2xl sm:text-3xl md:text-[1.75rem] font-sans font-bold text-[var(--color-text-primary)] leading-tight mb-2">
+							Persönliches Sparring für emotionale Klarheit.
+						</h2>
+						<p class="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed">
+							Aus meiner Freude an echten Gesprächen ist inzwischen auch etwas Neues entstanden: persönliches Sparring für Menschen, die Gedanken sortieren, offen reden oder eine neue Perspektive gewinnen möchten.
+						</p>
+					</div>
+					<a
+						href="http://offendenken.de/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex w-[214px] max-w-[214px] shrink-0 items-center justify-between gap-3 px-6 py-4 bg-[var(--color-olive)] text-white rounded-full text-base font-medium leading-tight hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5 md:-translate-x-4"
+					>
+						Offen Denken entdecken
+						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== MEINE GESCHICHTE SECTION ===== -->
+		<section id="meine-geschichte-old" class="hidden py-16 md:py-24">
+			<div class="max-w-4xl mx-auto px-6 lg:px-10">
+				<p class="text-xs uppercase tracking-[0.2em] text-[var(--color-olive)] font-semibold mb-3">
+					Über mich
+				</p>
+				<h2 class="text-3xl md:text-4xl font-serif font-bold text-[var(--color-text-primary)] tracking-tight mb-8">
+					Meine Geschichte
+				</h2>
+				<div class="max-w-2xl space-y-5 text-base leading-relaxed text-[var(--color-text-secondary)] md:text-lg">
+					<p>
+						Ich bin Martin Bendl. Im Herzen des Bayerischen Waldes geboren, aufgewachsen und bis heute zu Hause. Verwitwet, alleinerziehender Vater und ein Mensch, dessen Geschichte einige ungeplante Wendungen genommen hat.
+					</p>
+					<p class="font-semibold text-[var(--color-olive-dark)]">
+						Mittendrin meine Tochter. Ihre Kindheit findet jetzt statt.
+					</p>
+					<a
+						href={`${baseUrl}/meine-geschichte/`}
+						class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-olive)] underline underline-offset-4 hover:text-[var(--color-olive-dark)]"
+					>
+						Mehr über meine Geschichte
+						<svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+							<path d="M3.5 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== CONTINUING STORY SECTION ===== -->
+		<section id="meine-geschichte" class="py-16 md:py-24">
+			<div class="max-w-3xl mx-auto px-6 text-center space-y-6">
+				<h2 class="text-2xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] md:text-3xl">
+					Meine eigene Geschichte schreibe ich weiter.
+				</h2>
+				<p class="text-sm text-[var(--color-text-secondary)]">
+					Als Papa. Als Freund. Als Waidler vom Woid.
+				</p>
+				<p class="text-sm text-[var(--color-text-secondary)]">
+					Mit Ideen, Fragen, Umwegen und der Lust, Neues auszuprobieren.
+				</p>
+				<div class="pt-4">
+					<a
+						href={`${baseUrl}/meine-geschichte/`}
+						class="inline-flex items-center gap-3 px-7 py-3.5 border-2 border-[var(--color-olive)] text-[var(--color-olive)] rounded-full text-base font-medium hover:bg-[var(--color-olive)] hover:text-white transition-all duration-300"
+					>
+						<span>Meine Geschichte</span>
+						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
 			</div>
 		</section>
 	</main>
 
 	<Footer />
-</Layout>
+	</Layout>

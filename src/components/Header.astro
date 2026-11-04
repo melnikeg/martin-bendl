@@ -1,46 +1,39 @@
 ---
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeHref = `${baseUrl}/`;
+const storyHref = `${baseUrl}/meine-geschichte/`;
+const contactHref = `${homeHref}#kontakt`;
+const isStoryPage = Astro.url.pathname.replace(/\/$/, '') === `${baseUrl}/meine-geschichte`;
+const storyLinkClass = isStoryPage
+	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
+	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
+const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-olive)] transition-colors';
 ---
 
-<header class="sticky top-0 z-50 bg-[#fbfbfa]/90 backdrop-blur-md border-b border-[#e7e5e0] transition-colors duration-200">
-	<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-		<!-- Brand / Logo -->
-		<a href={import.meta.env.BASE_URL} class="group flex flex-col">
-			<span class="text-xl md:text-2xl font-semibold tracking-tight text-[#1c1c1a] group-hover:text-[#253243] transition-colors font-serif">
-				Martin Bendl
-			</span>
-			<span class="text-[10px] uppercase tracking-widest text-[#787672] font-medium">
-				Dialog &middot; Podcast &middot; Beratung
-			</span>
+<header class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300" id="site-header">
+	<div class="max-w-[1280px] mx-auto px-6 lg:pl-28 lg:pr-3.5 h-20 md:h-14 flex items-center justify-between">
+		<!-- Brand / Logo with mountain SVG -->
+		<a href={homeHref} class="group flex items-center gap-3">
+			<img src={`${baseUrl}/berg.svg`} class="w-16 h-6 object-contain" alt="" aria-hidden="true" />
+			<span class="h-7 border-l border-[var(--color-text-primary)]/30" aria-hidden="true"></span>
+			<span class={brandClass}>Martin Bendl</span>
 		</a>
 
 		<!-- Desktop Navigation -->
-		<nav class="hidden md:flex items-center gap-8 text-sm">
-			<a href="#ueber-mich" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
-				Über mich
+		<nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+			<a href={storyHref} aria-current={isStoryPage ? 'page' : undefined} class:list={[storyLinkClass, 'transition-colors']}>
+				Meine Geschichte
 			</a>
-			<a href="#podcast" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium flex items-center gap-1.5">
-				<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+			<a href="http://offendenken.de/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
+				Offen Denken
+			</a>
+			<a href="https://unter-uns-gsogt.podigee.io" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
 				Podcast
 			</a>
-			<a href="#walk-and-talk" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
-				Walk & Talk Beratung
-			</a>
-			<a href="#kontakt" class="text-[#4a4946] hover:text-[#1c1c1a] transition-colors font-medium">
+			<a href={contactHref} class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
 				Kontakt
 			</a>
 		</nav>
-
-		<!-- Desktop Action CTA -->
-		<div class="hidden sm:flex items-center gap-3">
-			<a
-				href="http://offendenken.de/"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded-none border border-[#1d2633] text-[#1d2633] hover:bg-[#1d2633] hover:text-white transition-all duration-200"
-			>
-				Termin anfragen
-			</a>
-		</div>
 
 		<!-- Animated Mobile Burger Button -->
 		<button
@@ -50,67 +43,51 @@
 			aria-label="Menü öffnen"
 			aria-expanded="false"
 		>
-			<span id="burger-top" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
-			<span id="burger-mid" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
-			<span id="burger-bot" class="w-6 h-[1.5px] bg-[#1c1c1a] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-top" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-mid" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-bot" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
 		</button>
 	</div>
 
-	<!-- Mobile Overlay & Floating Dropdown Panel (Positioned on top of content, not pushing down) -->
+	<!-- Mobile Overlay & Floating Dropdown Panel -->
 	<div
 		id="mobile-menu-backdrop"
 		class="fixed inset-0 top-20 z-40 bg-black/35 backdrop-blur-xs md:hidden opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
 	>
 		<div
 			id="mobile-menu-panel"
-			class="bg-[#fbfbfa] border-b border-[#e7e5e0] px-6 pt-5 pb-8 shadow-2xl transform -translate-y-4 opacity-0 transition-all duration-300 ease-out"
+			class="bg-[var(--color-warm-bg)] border-b border-[var(--color-border-soft)] px-6 pt-5 pb-8 shadow-2xl transform -translate-y-4 opacity-0 transition-all duration-300 ease-out"
 		>
 			<nav class="flex flex-col space-y-1">
 				<a
-					href="#ueber-mich"
-					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+					href={storyHref}
+					aria-current={isStoryPage ? 'page' : undefined}
+					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)]', storyLinkClass]}
 				>
-					<span>Über mich</span>
-					<span class="text-xs text-[#787672] font-mono">01</span>
+					Meine Geschichte
 				</a>
 				<a
-					href="#podcast"
-					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+					href="http://offendenken.de/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mobile-link text-base font-medium text-[var(--color-text-primary)] py-3 border-b border-[var(--color-border-soft)]/70 hover:text-[var(--color-olive)] transition-colors"
 				>
-					<span class="flex items-center gap-2">
-						<span class="text-emerald-600">🎙️</span>
-						<span>Podcast (Bayerischer Dialekt)</span>
-					</span>
-					<span class="text-xs text-[#787672] font-mono">02</span>
+					Offen Denken
 				</a>
 				<a
-					href="#walk-and-talk"
-					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+					href="https://unter-uns-gsogt.podigee.io"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mobile-link text-base font-medium text-[var(--color-text-primary)] py-3 border-b border-[var(--color-border-soft)]/70 hover:text-[var(--color-olive)] transition-colors"
 				>
-					<span class="flex items-center gap-2">
-						<span class="text-emerald-600">🚶</span>
-						<span>Walk & Talk Beratung</span>
-					</span>
-					<span class="text-xs text-[#787672] font-mono">03</span>
+					Podcast
 				</a>
 				<a
-					href="#kontakt"
-					class="mobile-link text-base font-medium text-[#1c1c1a] py-3 border-b border-[#e7e5e0]/70 flex items-center justify-between hover:text-[#253243] transition-colors"
+					href={contactHref}
+					class="mobile-link text-base font-medium text-[var(--color-text-primary)] py-3 border-b border-[var(--color-border-soft)]/70 hover:text-[var(--color-olive)] transition-colors"
 				>
-					<span>Kontakt &amp; Impressum</span>
-					<span class="text-xs text-[#787672] font-mono">04</span>
+					Kontakt
 				</a>
-
-				<div class="pt-5">
-					<a
-						href="http://offendenken.de/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="mobile-link block text-center text-xs uppercase tracking-widest font-semibold px-5 py-3.5 bg-[#1d2633] text-white hover:bg-[#2c384a] active:bg-[#141b25] transition-colors"
-					>
-						Termin anfragen
-					</a>
-				</div>
 			</nav>
 		</div>
 	</div>
@@ -132,20 +109,16 @@
 		btn?.setAttribute('aria-expanded', 'true');
 		btn?.setAttribute('aria-label', 'Menü schließen');
 
-		// Backdrop animation
 		backdrop?.classList.remove('opacity-0', 'pointer-events-none');
 		backdrop?.classList.add('opacity-100', 'pointer-events-auto');
 
-		// Panel slide-down animation
 		panel?.classList.remove('-translate-y-4', 'opacity-0');
 		panel?.classList.add('translate-y-0', 'opacity-100');
 
-		// Burger to X animation
 		lineTop?.classList.add('rotate-45', 'translate-y-[7.5px]');
 		lineMid?.classList.add('opacity-0', 'scale-x-0');
 		lineBot?.classList.add('-rotate-45', '-translate-y-[7.5px]');
 
-		// Lock body scroll
 		document.body.style.overflow = 'hidden';
 	}
 
@@ -154,20 +127,16 @@
 		btn?.setAttribute('aria-expanded', 'false');
 		btn?.setAttribute('aria-label', 'Menü öffnen');
 
-		// Backdrop animation
 		backdrop?.classList.remove('opacity-100', 'pointer-events-auto');
 		backdrop?.classList.add('opacity-0', 'pointer-events-none');
 
-		// Panel slide-up animation
 		panel?.classList.remove('translate-y-0', 'opacity-100');
 		panel?.classList.add('-translate-y-4', 'opacity-0');
 
-		// X back to burger animation
 		lineTop?.classList.remove('rotate-45', 'translate-y-[7.5px]');
 		lineMid?.classList.remove('opacity-0', 'scale-x-0');
 		lineBot?.classList.remove('-rotate-45', '-translate-y-[7.5px]');
 
-		// Unlock body scroll
 		document.body.style.overflow = '';
 	}
 
@@ -181,24 +150,33 @@
 
 	btn?.addEventListener('click', toggleMenu);
 
-	// Close when clicking outside on the backdrop
 	backdrop?.addEventListener('click', (e) => {
 		if (e.target === backdrop) {
 			closeMenu();
 		}
 	});
 
-	// Close when clicking any menu link
 	links.forEach((l) => {
 		l.addEventListener('click', () => {
 			closeMenu();
 		});
 	});
 
-	// Close on Escape key
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && isOpen) {
 			closeMenu();
+		}
+	});
+
+	// Header background on scroll
+	const header = document.getElementById('site-header');
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 50) {
+			header?.classList.add('bg-[var(--color-warm-bg)]/90', 'backdrop-blur-md', 'shadow-sm');
+			header?.classList.remove('bg-transparent');
+		} else {
+			header?.classList.remove('bg-[var(--color-warm-bg)]/90', 'backdrop-blur-md', 'shadow-sm');
+			header?.classList.add('bg-transparent');
 		}
 	});
 </script>
