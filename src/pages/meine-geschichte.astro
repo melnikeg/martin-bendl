@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
@@ -203,10 +204,5 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 		</section>
 	</main>
 
-	<footer class="border-t border-[var(--color-border-soft)] bg-[#f8f2e7] px-6 py-4">
-		<div class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 text-[0.55rem] text-[var(--color-text-muted)]">
-			<span>Martin Bendl</span>
-			<span>Mensch. Heimat. Geschichten.</span>
-		</div>
-	</footer>
+	<Footer />
 </Layout>

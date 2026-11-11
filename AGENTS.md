@@ -27,7 +27,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 ## Validation
 
-- Run `npm run build` after code changes to verify Astro rendering and the production bundle.
+- Do not run `npm run build` or start `npm run dev` after every code change. Run them only when explicitly requested or when necessary to verify a specific issue.
 - There is currently no test or lint script in `package.json`; do not assume one exists.
 
 ## Documentation

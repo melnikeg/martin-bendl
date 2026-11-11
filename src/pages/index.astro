@@ -17,7 +17,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="relative mx-auto flex min-h-[100vh] w-full items-center overflow-hidden pt-20 max-md:min-h-[calc(100vh-2rem)]">
 			<div
 				class="absolute inset-0 bg-[image:var(--hero-image)] bg-left-top bg-no-repeat bg-cover max-md:bg-[image:linear-gradient(to_bottom,transparent_25%,var(--color-warm-bg)_42%),var(--hero-image)] max-md:bg-[position:center,8%_5rem] max-md:bg-[length:100%_100%,auto_60vh] min-[640px]:max-md:bg-[length:100%_100%,100%_auto] max-md:bg-no-repeat max-md:bg-[var(--color-warm-bg)] min-[1536px]:bg-left-top"
-				style={`--hero-image: url("${baseUrl}/martin-bendl-hero-background.webp?v=1")`}
+				style={`--hero-image: url("${baseUrl}/martin-bendl-hero-background.png?v=1")`}
 				role="img"
 				aria-label="Martin Bendl in einer Landschaft des Bayerischen Waldes"
 			></div>
@@ -39,7 +39,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<!-- CTA Button -->
 					<a
 						href="#meine-geschichte"
-						class="inline-flex items-center gap-3 px-7 py-2.5 bg-[var(--color-olive)] text-white rounded-full text-base font-medium hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5"
+						class="inline-flex origin-center items-center gap-3 px-7 py-2.5 bg-[var(--color-olive)] text-white rounded-full text-base font-medium hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5 hover:scale-[1.08] focus-visible:scale-[1.05]"
 					>
 						Meine Geschichte entdecken
 						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -58,7 +58,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Unter uns g'sogt Podcast öffnen"
-								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
+								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.2] focus-visible:scale-[1.2] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
 							>
 								<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full bg-[var(--color-olive)] text-white outline outline-1 outline-white/40 outline-offset-1" aria-hidden="true">
 									<svg class="h-[1.2rem] w-[1.2rem]" viewBox="0 0 24 24" fill="none">
@@ -68,7 +68,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 								</span>
 								<span class="relative pb-[0.3rem] font-medium italic">Unter uns g'sogt<svg class="absolute right-0 bottom-0 h-[0.45rem] w-full overflow-visible" viewBox="0 0 112 8" aria-hidden="true"><path d="M2 5c28-5 72-4 108 0" class="fill-none stroke-[#c5cb23] stroke-[2.5] stroke-linecap-round" /></svg></span>
 							</a>
-							<span class="h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
+							<span class="dock-divider h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 transition-opacity duration-[180ms] max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
 						</span>
 
 						<!-- @woidstrawanza (Instagram) -->
@@ -78,10 +78,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Instagram-Profil @woidstrawanza öffnen"
-								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
+								class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.2] focus-visible:scale-[1.2] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
 							>
 								<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full border border-[#9db53f] bg-[var(--color-olive)] text-white" aria-hidden="true">
-									<svg viewBox="0 0 24 24" fill="none">
+									<svg class="w-8 h-5" viewBox="0 0 24 24" fill="none">
 										<rect x="3.5" y="3.5" width="17" height="17" rx="4" class="fill-none stroke-current stroke-[1.7]" />
 										<circle cx="12" cy="12" r="4" class="fill-none stroke-current stroke-[1.7]" />
 										<circle cx="17.5" cy="6.8" r="1" class="fill-current stroke-none" />
@@ -89,7 +89,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 								</span>
 								<span class="relative pb-[0.3rem] font-medium italic">@woidstrawanza<svg class="absolute right-0 bottom-0 h-[0.45rem] w-full overflow-visible" viewBox="0 0 112 8" aria-hidden="true"><path d="M2 5c28-5 72-4 108 0" class="fill-none stroke-[#c5cb23] stroke-[2.5] stroke-linecap-round" /></svg></span>
 							</a>
-							<span class="h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
+							<span class="dock-divider h-[1.65rem] w-px flex-[0_0_1px] bg-white/75 transition-opacity duration-[180ms] max-md:bg-[var(--color-olive)]" aria-hidden="true"></span>
 						</span>
 
 						<!-- @herz.ensmenschen (Instagram) -->
@@ -98,10 +98,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Instagram-Profil @herz.ensmenschen öffnen"
-							class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.08] focus-visible:scale-[1.08] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
+							class="inline-flex items-center gap-[0.55rem] whitespace-nowrap py-[0.2rem] text-[0.8125rem] font-medium text-white [text-shadow:0_1px_5px_rgb(22_37_10_/_48%)] [transform-origin:center] transition-transform duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.2] focus-visible:scale-[1.2] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 max-md:text-[var(--color-text-primary)] max-md:[text-shadow:none] max-md:focus-visible:outline-[var(--color-olive)]"
 						>
 							<span class="inline-flex h-[1.8rem] w-[1.8rem] flex-[0_0_1.8rem] items-center justify-center rounded-full border border-[#9db53f] bg-[var(--color-olive)] text-white" aria-hidden="true">
-								<svg viewBox="0 0 24 24" fill="none">
+								<svg class="w-8 h-5" viewBox="0 0 24 24" fill="none">
 									<rect x="3.5" y="3.5" width="17" height="17" rx="4" class="fill-none stroke-current stroke-[1.7]" />
 									<circle cx="12" cy="12" r="4" class="fill-none stroke-current stroke-[1.7]" />
 									<circle cx="17.5" cy="6.8" r="1" class="fill-current stroke-none" />
@@ -133,7 +133,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 						href="http://offendenken.de/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex w-[214px] max-w-[214px] shrink-0 items-center justify-between gap-3 px-6 py-4 bg-[var(--color-olive)] text-white rounded-full text-base font-medium leading-tight hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5 md:-translate-x-4"
+						class="inline-flex origin-center w-[280px] max-w-[280px] shrink-0 items-center justify-between gap-3 px-6 py-4 bg-[var(--color-olive)] text-white rounded-full text-base font-medium leading-tight hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5 hover:scale-[1.08] focus-visible:scale-[1.05] md:-translate-x-4"
 					>
 						Offen Denken entdecken
 						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -202,3 +202,14 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	<Footer />
 	</Layout>
+
+<style>
+	#dock:has(> span:first-child > a:is(:hover, :focus)) > span:first-child .dock-divider,
+	#dock:has(> a:last-child:is(:hover, :focus)) > span:nth-child(2) .dock-divider {
+		opacity: 0;
+	}
+
+	#dock:has(> span:nth-child(2) > a:is(:hover, :focus)) .dock-divider {
+		opacity: 0;
+	}
+</style>
