@@ -3,7 +3,9 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeHref = `${baseUrl}/`;
 const storyHref = `${baseUrl}/meine-geschichte/`;
 const contactHref = `${homeHref}#kontakt`;
-const isStoryPage = Astro.url.pathname.replace(/\/$/, '') === `${baseUrl}/meine-geschichte`;
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+const isHomePage = currentPath === baseUrl || currentPath === '';
+const isStoryPage = currentPath === `${baseUrl}/meine-geschichte`;
 const storyLinkClass = isStoryPage
 	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
 	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
@@ -17,12 +19,13 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 			? 'bg-[var(--color-warm-bg)] backdrop-blur-md shadow-sm'
 			: 'bg-transparent max-md:bg-[var(--color-warm-bg)]',
 	]}
+	data-home-page={isHomePage ? 'true' : undefined}
 	data-story-page={isStoryPage ? 'true' : undefined}
 	id="site-header"
 >
-	<div class="mx-auto px-6 lg:pl-50 lg:pr-50 h-full flex items-center justify-between">
+	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-50 lg:pr-50 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
 		<!-- Brand / Logo with mountain SVG -->
-		<a href={homeHref} class="group flex items-center gap-3">
+		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-35']}>
 			<img src={`${baseUrl}/bayerischer-wald.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
 			<span class="h-7 border-l border-[var(--color-text-primary)]/30" aria-hidden="true"></span>
 			<span class={brandClass}>Martin Bendl</span>
@@ -112,6 +115,9 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 	const links = document.querySelectorAll('.mobile-link');
 
 	const header = document.getElementById('site-header');
+	const headerContent = document.getElementById('site-header-content');
+	const headerBrand = document.getElementById('site-header-brand');
+	const isHomePage = header?.dataset.homePage === 'true';
 	const isStoryPage = header?.dataset.storyPage === 'true';
 	let isOpen = false;
 	const isMobileViewport = () => window.matchMedia('(max-width: 767px)').matches;
@@ -124,6 +130,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 
 	function updateHeaderAppearance() {
 		const isScrolled = window.scrollY > 50;
+		const isCompactHomeHeader = isHomePage && (isScrolled || isMobileViewport());
 		const hasFixedBackground = isOpen || isStoryPage || isMobileViewport();
 		const nextBackgroundClass = hasFixedBackground
 			? 'bg-[var(--color-warm-bg)]'
@@ -140,6 +147,9 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		header?.classList.toggle('backdrop-blur-md', hasFixedBackground || isScrolled);
 		header?.classList.toggle('shadow-sm', hasFixedBackground || isScrolled);
 		header?.classList.toggle('transition-none', isOpen);
+		headerContent?.classList.toggle('justify-end', isHomePage && !isCompactHomeHeader);
+		headerContent?.classList.toggle('justify-between', !isHomePage || isCompactHomeHeader);
+		headerBrand?.classList.toggle('mr-35', isHomePage && !isCompactHomeHeader);
 	}
 
 	function openMenu() {
