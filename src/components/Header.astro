@@ -2,11 +2,16 @@
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeHref = `${baseUrl}/`;
 const storyHref = `${baseUrl}/meine-geschichte/`;
+const offenDenkenHref = `${baseUrl}/offen-denken/`;
 const contactHref = `${homeHref}#kontakt`;
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
 const isHomePage = currentPath === baseUrl || currentPath === '';
 const isStoryPage = currentPath === `${baseUrl}/meine-geschichte`;
+const isOffenDenkenPage = currentPath === `${baseUrl}/offen-denken`;
 const storyLinkClass = isStoryPage
+	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
+	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
+const offenDenkenLinkClass = isOffenDenkenPage
 	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
 	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
 const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-olive)] transition-colors';
@@ -15,11 +20,12 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 <header
 	class:list={[
 		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
-		isStoryPage
+		isStoryPage || isOffenDenkenPage
 			? 'bg-[var(--color-warm-bg)] backdrop-blur-md shadow-sm'
 			: 'bg-transparent max-md:bg-[var(--color-warm-bg)]',
 	]}
 	data-home-page={isHomePage ? 'true' : undefined}
+	data-offen-denken-page={isOffenDenkenPage ? 'true' : undefined}
 	data-story-page={isStoryPage ? 'true' : undefined}
 	id="site-header"
 >
@@ -36,7 +42,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 			<a href={storyHref} aria-current={isStoryPage ? 'page' : undefined} class:list={[storyLinkClass, 'transition-colors']}>
 				Meine Geschichte
 			</a>
-			<a href="http://offendenken.de/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
+			<a href={offenDenkenHref} aria-current={isOffenDenkenPage ? 'page' : undefined} class:list={[offenDenkenLinkClass, 'transition-colors']}>
 				Offen Denken
 			</a>
 			<a href="https://unter-uns-gsogt.podigee.io" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
@@ -79,10 +85,9 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 					Meine Geschichte
 				</a>
 				<a
-					href="http://offendenken.de/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="mobile-link text-base font-medium text-[var(--color-text-primary)] py-3 border-b border-[var(--color-border-soft)]/70 hover:text-[var(--color-olive)] transition-colors"
+					href={offenDenkenHref}
+					aria-current={isOffenDenkenPage ? 'page' : undefined}
+					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)]', offenDenkenLinkClass]}
 				>
 					Offen Denken
 				</a>
@@ -119,9 +124,10 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 	const headerBrand = document.getElementById('site-header-brand');
 	const isHomePage = header?.dataset.homePage === 'true';
 	const isStoryPage = header?.dataset.storyPage === 'true';
+	const isOffenDenkenPage = header?.dataset.offenDenkenPage === 'true';
 	let isOpen = false;
 	const isMobileViewport = () => window.matchMedia('(max-width: 767px)').matches;
-	let headerBackgroundClass = isStoryPage || isMobileViewport()
+	let headerBackgroundClass = isStoryPage || isOffenDenkenPage || isMobileViewport()
 		? 'bg-[var(--color-warm-bg)]'
 		: 'bg-transparent';
 	let bodyOverflowBeforeMenu = '';
@@ -131,7 +137,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 	function updateHeaderAppearance() {
 		const isScrolled = window.scrollY > 50;
 		const isCompactHomeHeader = isHomePage && (isScrolled || isMobileViewport());
-		const hasFixedBackground = isOpen || isStoryPage || isMobileViewport();
+		const hasFixedBackground = isOpen || isStoryPage || isOffenDenkenPage || isMobileViewport();
 		const nextBackgroundClass = hasFixedBackground
 			? 'bg-[var(--color-warm-bg)]'
 			: isScrolled

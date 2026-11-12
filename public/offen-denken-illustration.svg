@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" fill="none">
+  <rect width="640" height="520" rx="40" fill="#EEE5D3"/>
+  <circle cx="320" cy="254" r="190" fill="#F8F2E7"/>
+  <path d="M157 411h329" stroke="#486400" stroke-width="8" stroke-linecap="round"/>
+
+  <path d="M245 411V228l77-51 77 51v183H245Z" fill="#FFF5EB" stroke="#486400" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M282 411V302h80v109" fill="#EEE5D3" stroke="#486400" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M267 250h30v30h-30zM347 250h30v30h-30z" fill="#EEE5D3" stroke="#486400" stroke-width="7"/>
+  <path d="M245 228h154M322 177v-35" stroke="#486400" stroke-width="9" stroke-linecap="round"/>
+  <path d="M322 142h71l-18 20" stroke="#486400" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M178 411V203m58 208V203m-58 45h58m-58 54h58m-58 54h58m-58 54h58" stroke="#5D8000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m178 203 58 54m-58 0 58-54m-58 108 58 54m-58 0 58-54" stroke="#5D8000" stroke-width="6" stroke-linecap="round"/>
+  <path d="M178 203h58" stroke="#486400" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="178" cy="203" r="9" fill="#C5CB23" stroke="#486400" stroke-width="5"/>
+
+  <path d="M418 411V264m56 147V264m-56 49h56m-56 49h56m-56 49h56" stroke="#5D8000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m418 264 56 49m-56 0 56-49m-56 98 56 49m-56 0 56-49" stroke="#5D8000" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M438 102v91m0 0-19 25m19-25 19 25" stroke="#486400" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M412 218h52" stroke="#486400" stroke-width="7" stroke-linecap="round"/>
+  <path d="M438 101c5 17 18 30 35 35-17 5-30 18-35 35-5-17-18-30-35-35 17-5 30-18 35-35Z" fill="#C5CB23"/>
+
+  <path d="M158 431h324l-17 28H175l-17-28Z" fill="#FFF5EB" stroke="#486400" stroke-width="6" stroke-linejoin="round"/>
+  <path d="m190 434-15 22m65-22-15 22m65-22-15 22m65-22-15 22m65-22-15 22m65-22-15 22" stroke="#C5CB23" stroke-width="12"/>
+  <path d="M160 466h320" stroke="#486400" stroke-width="7" stroke-linecap="round"/>
+</svg>

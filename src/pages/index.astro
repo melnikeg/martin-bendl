@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const offenDenkenHref = `${baseUrl}/offen-denken/`;
 ---
 
 <Layout
@@ -133,9 +134,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 						</p>
 					</div>
 					<a
-						href="http://offendenken.de/"
-						target="_blank"
-						rel="noopener noreferrer"
+						href={offenDenkenHref}
 						class="inline-flex self-end origin-center w-[280px] max-w-[280px] shrink-0 items-center justify-between gap-3 px-6 py-4 bg-[var(--color-olive)] text-white rounded-full text-base font-medium leading-tight hover:bg-[var(--color-olive-dark)] transition-all duration-300 shadow-lg shadow-[var(--color-olive)]/20 hover:shadow-xl hover:shadow-[var(--color-olive)]/30 hover:-translate-y-0.5 hover:scale-[1.08] focus-visible:scale-[1.05] md:-translate-x-4"
 					>
 						Offen Denken entdecken

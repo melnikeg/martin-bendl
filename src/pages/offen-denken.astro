@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+	title="Offen Denken — Persönliches Sparring | Martin Bendl"
+	description="Offen Denken von Martin Bendl: persönliches Sparring für emotionale Klarheit. Gedanken sortieren, offen reden und neue Perspektiven gewinnen."
+>
+	<Header />
+
+	<main class="w-full pt-20 md:pt-14">
+		<section class="mx-auto max-w-[1280px] px-6 py-10 md:px-10 md:py-14">
+			<div class="flex flex-col items-center">
+				<p class="mb-5 text-2xl font-bold tracking-tight text-[var(--color-olive-dark)] sm:text-3xl">
+					Noch im Aufbau
+				</p>
+				<figure class="mx-auto w-full max-w-[28rem] md:max-w-[32rem]">
+					<img
+						src={`${baseUrl}/offen-denken-illustration.svg`}
+						alt="Zwei offene Gesprächsblasen als Symbol für persönliches Sparring"
+						class="h-auto w-full"
+						width="640"
+						height="520"
+						fetchpriority="high"
+					/>
+				</figure>
+			</div>
+
+			<div class="mx-auto mt-10 max-w-2xl md:mt-12">
+				<p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-olive)]">
+					Ein Projekt von Martin Bendl
+				</p>
+				<h1 class="mb-5 text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl md:text-6xl">
+					Offen Denken
+				</h1>
+				<p class="mb-5 text-xl font-semibold leading-snug text-[#5B4D42] sm:text-2xl">
+					Persönliches Sparring für emotionale Klarheit.
+				</p>
+				<div class="space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
+					<p>
+						Aus meiner Freude an echten Gesprächen ist inzwischen auch etwas Neues entstanden: persönliches Sparring für Menschen, die Gedanken sortieren, offen reden oder eine neue Perspektive gewinnen möchten.
+					</p>
+					<p>
+						Warum es manchmal guttun kann, mit jemandem zu sprechen, der nicht Teil der eigenen Geschichte ist, erzähle ich auf Offen Denken.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>

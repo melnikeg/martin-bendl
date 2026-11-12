@@ -1,5 +1,6 @@
 ---
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const offenDenkenHref = `${baseUrl}/offen-denken/`;
 ---
 
 <footer id="kontakt" class="relative z-10 bg-[var(--color-olive)] text-white/90 pt-16 pb-12">
@@ -46,9 +47,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 					</li>
 					<li>
 						<a
-							href="http://offendenken.de/"
-							target="_blank"
-							rel="noopener noreferrer"
+							href={offenDenkenHref}
 							class="hover:text-white transition-colors flex items-center gap-2 group text-white/70"
 						>
 							<span class="group-hover:underline">Offen Denken (persönliches Sparring)</span>
