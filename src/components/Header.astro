@@ -29,9 +29,9 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 	data-story-page={isStoryPage ? 'true' : undefined}
 	id="site-header"
 >
-	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-50 lg:pr-50 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
+	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-80 lg:pr-10 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
 		<!-- Brand / Logo with mountain SVG -->
-		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-35']}>
+		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-30']}>
 			<img src={`${baseUrl}/bayerischer-wald.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
 			<span class="h-7 border-l border-[var(--color-text-primary)]/30" aria-hidden="true"></span>
 			<span class={brandClass}>Martin Bendl</span>
@@ -155,7 +155,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 		header?.classList.toggle('transition-none', isOpen);
 		headerContent?.classList.toggle('justify-end', isHomePage && !isCompactHomeHeader);
 		headerContent?.classList.toggle('justify-between', !isHomePage || isCompactHomeHeader);
-		headerBrand?.classList.toggle('mr-35', isHomePage && !isCompactHomeHeader);
+		headerBrand?.classList.toggle('mr-30', isHomePage && !isCompactHomeHeader);
 	}
 
 	function openMenu() {
