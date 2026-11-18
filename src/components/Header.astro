@@ -9,31 +9,29 @@ const isHomePage = currentPath === baseUrl || currentPath === '';
 const isStoryPage = currentPath === `${baseUrl}/meine-geschichte`;
 const isOffenDenkenPage = currentPath === `${baseUrl}/offen-denken`;
 const storyLinkClass = isStoryPage
-	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
-	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
+	? 'text-[var(--color-olive-light)] underline decoration-[var(--color-olive-light)]/60 underline-offset-8'
+	: 'text-white/90 hover:text-white';
 const offenDenkenLinkClass = isOffenDenkenPage
-	? 'text-[var(--color-olive)] underline decoration-[var(--color-olive)]/50 underline-offset-8'
-	: 'text-[var(--color-text-primary)] hover:text-[var(--color-olive)]';
-const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-olive)] transition-colors';
+	? 'text-[var(--color-olive-light)] underline decoration-[var(--color-olive-light)]/60 underline-offset-8'
+	: 'text-white/90 hover:text-white';
+const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group-hover:text-[var(--color-olive-light)] transition-colors';
 ---
 
 <header
 	class:list={[
-		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
-		isStoryPage || isOffenDenkenPage
-			? 'bg-[var(--color-warm-bg)] backdrop-blur-md shadow-sm'
-			: 'bg-transparent max-md:bg-[var(--color-warm-bg)]',
+		'fixed top-0 left-0 right-0 z-50 h-20 bg-[var(--color-oliv-dunk)] transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
+		isStoryPage || isOffenDenkenPage ? 'backdrop-blur-md shadow-sm' : '',
 	]}
 	data-home-page={isHomePage ? 'true' : undefined}
 	data-offen-denken-page={isOffenDenkenPage ? 'true' : undefined}
 	data-story-page={isStoryPage ? 'true' : undefined}
 	id="site-header"
 >
-	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-80 lg:pr-10 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
+	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-40 lg:pr-10 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
 		<!-- Brand / Logo with mountain SVG -->
-		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-30']}>
-			<img src={`${baseUrl}/bayerischer-wald.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
-			<span class="h-7 border-l border-[var(--color-text-primary)]/30" aria-hidden="true"></span>
+		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-70']}>
+			<img src={`${baseUrl}/wald-logo-footer.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
+			<span class="h-7 border-l border-white/30" aria-hidden="true"></span>
 			<span class={brandClass}>Martin Bendl</span>
 		</a>
 
@@ -45,10 +43,10 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 			<a href={offenDenkenHref} aria-current={isOffenDenkenPage ? 'page' : undefined} class:list={[offenDenkenLinkClass, 'transition-colors']}>
 				Offen Denken
 			</a>
-			<a href="https://unter-uns-gsogt.podigee.io" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
+			<a href="https://unter-uns-gsogt.podigee.io" target="_blank" rel="noopener noreferrer" class="text-white/90 hover:text-white transition-colors">
 				Podcast
 			</a>
-			<a href={contactHref} class="text-[var(--color-text-primary)] hover:text-[var(--color-olive)] transition-colors">
+			<a href={contactHref} class="text-white/90 hover:text-white transition-colors">
 				Kontakt
 			</a>
 		</nav>
@@ -61,9 +59,9 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 			aria-label="Menü öffnen"
 			aria-expanded="false"
 		>
-			<span id="burger-top" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
-			<span id="burger-mid" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
-			<span id="burger-bot" class="w-6 h-[1.5px] bg-[var(--color-text-primary)] transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-top" class="w-6 h-[1.5px] bg-white transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-mid" class="w-6 h-[1.5px] bg-white transition-all duration-300 ease-in-out origin-center"></span>
+			<span id="burger-bot" class="w-6 h-[1.5px] bg-white transition-all duration-300 ease-in-out origin-center"></span>
 		</button>
 	</div>
 
@@ -121,41 +119,23 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-[var(--colo
 
 	const header = document.getElementById('site-header');
 	const headerContent = document.getElementById('site-header-content');
-	const headerBrand = document.getElementById('site-header-brand');
 	const isHomePage = header?.dataset.homePage === 'true';
 	const isStoryPage = header?.dataset.storyPage === 'true';
 	const isOffenDenkenPage = header?.dataset.offenDenkenPage === 'true';
 	let isOpen = false;
 	const isMobileViewport = () => window.matchMedia('(max-width: 767px)').matches;
-	let headerBackgroundClass = isStoryPage || isOffenDenkenPage || isMobileViewport()
-		? 'bg-[var(--color-warm-bg)]'
-		: 'bg-transparent';
 	let bodyOverflowBeforeMenu = '';
-
-	const headerBackgroundClasses = ['bg-transparent', 'bg-[var(--color-warm-bg)]', 'bg-[var(--color-warm-bg)]/90'];
 
 	function updateHeaderAppearance() {
 		const isScrolled = window.scrollY > 50;
-		const isCompactHomeHeader = isHomePage && (isScrolled || isMobileViewport());
-		const hasFixedBackground = isOpen || isStoryPage || isOffenDenkenPage || isMobileViewport();
-		const nextBackgroundClass = hasFixedBackground
-			? 'bg-[var(--color-warm-bg)]'
-			: isScrolled
-				? 'bg-[var(--color-warm-bg)]/90'
-				: 'bg-transparent';
-
-		if (headerBackgroundClass !== nextBackgroundClass) {
-			header?.classList.remove(...headerBackgroundClasses);
-			header?.classList.add(nextBackgroundClass);
-			headerBackgroundClass = nextBackgroundClass;
-		}
+		const isMobile = isMobileViewport();
+		const hasFixedBackground = isOpen || isStoryPage || isOffenDenkenPage || isMobile;
 
 		header?.classList.toggle('backdrop-blur-md', hasFixedBackground || isScrolled);
 		header?.classList.toggle('shadow-sm', hasFixedBackground || isScrolled);
 		header?.classList.toggle('transition-none', isOpen);
-		headerContent?.classList.toggle('justify-end', isHomePage && !isCompactHomeHeader);
-		headerContent?.classList.toggle('justify-between', !isHomePage || isCompactHomeHeader);
-		headerBrand?.classList.toggle('mr-30', isHomePage && !isCompactHomeHeader);
+		headerContent?.classList.toggle('justify-end', isHomePage && !isMobile);
+		headerContent?.classList.toggle('justify-between', !isHomePage || isMobile);
 	}
 
 	function openMenu() {
