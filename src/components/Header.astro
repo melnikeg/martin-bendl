@@ -19,7 +19,8 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 
 <header
 	class:list={[
-		'fixed top-0 left-0 right-0 z-50 h-20 bg-[var(--color-oliv-dunk)] transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
+		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
+		isHomePage ? 'bg-transparent max-md:bg-[var(--color-oliv-dunk)]' : 'bg-[var(--color-oliv-dunk)]',
 		isStoryPage || isOffenDenkenPage ? 'backdrop-blur-md shadow-sm' : '',
 	]}
 	data-home-page={isHomePage ? 'true' : undefined}
@@ -30,13 +31,20 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-40 lg:pr-10 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
 		<!-- Brand / Logo with mountain SVG -->
 		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-70 max-md:mr-0']}>
-			<img src={`${baseUrl}/wald-logo-footer.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
-			<span class="h-7 border-l border-white/30" aria-hidden="true"></span>
-			<span class={brandClass}>Martin Bendl</span>
+			<img
+				src={`${baseUrl}/${isHomePage ? 'bayerischer-wald.svg' : 'wald-logo-footer.svg'}`}
+				data-top-logo={`${baseUrl}/bayerischer-wald.svg`}
+				data-fixed-logo={`${baseUrl}/wald-logo-footer.svg`}
+				class="w-45 h-20 object-contain"
+				alt=""
+				aria-hidden="true"
+			/>
+			<span id="site-header-brand-divider" class="h-7 border-l border-white/30" aria-hidden="true"></span>
+			<span id="site-header-brand-name" class={brandClass}>Martin Bendl</span>
 		</a>
 
 		<!-- Desktop Navigation -->
-		<nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+		<nav id="site-header-nav" class="hidden md:flex items-center gap-8 text-sm font-semibold">
 			<a href={storyHref} aria-current={isStoryPage ? 'page' : undefined} class:list={[storyLinkClass, 'transition-colors']}>
 				Meine Geschichte
 			</a>
@@ -119,6 +127,10 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 
 	const header = document.getElementById('site-header');
 	const headerContent = document.getElementById('site-header-content');
+	const headerLogo = document.querySelector<HTMLImageElement>('#site-header-brand img');
+	const headerBrandDivider = document.getElementById('site-header-brand-divider');
+	const headerBrandName = document.getElementById('site-header-brand-name');
+	const headerNavLinks = header?.querySelectorAll('#site-header-nav a');
 	const isHomePage = header?.dataset.homePage === 'true';
 	const isStoryPage = header?.dataset.storyPage === 'true';
 	const isOffenDenkenPage = header?.dataset.offenDenkenPage === 'true';
@@ -130,12 +142,30 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 		const isScrolled = window.scrollY > 50;
 		const isMobile = isMobileViewport();
 		const hasFixedBackground = isOpen || isStoryPage || isOffenDenkenPage || isMobile;
+		const isTransparentHomeHeader = isHomePage && !isScrolled && !isMobile && !isOpen;
 
+		header?.classList.toggle('bg-transparent', isTransparentHomeHeader);
+		header?.classList.toggle('bg-[var(--color-oliv-dunk)]', !isTransparentHomeHeader);
 		header?.classList.toggle('backdrop-blur-md', hasFixedBackground || isScrolled);
 		header?.classList.toggle('shadow-sm', hasFixedBackground || isScrolled);
 		header?.classList.toggle('transition-none', isOpen);
 		headerContent?.classList.toggle('justify-end', isHomePage && !isMobile);
 		headerContent?.classList.toggle('justify-between', !isHomePage || isMobile);
+
+		if (isHomePage) {
+			headerLogo?.setAttribute('src', isTransparentHomeHeader ? headerLogo.dataset.topLogo ?? '' : headerLogo.dataset.fixedLogo ?? '');
+			headerBrandDivider?.classList.toggle('border-white/30', !isTransparentHomeHeader);
+			headerBrandDivider?.classList.toggle('border-[var(--color-text-primary)]/30', isTransparentHomeHeader);
+			headerBrandName?.classList.toggle('text-white', !isTransparentHomeHeader);
+			headerBrandName?.classList.toggle('text-[var(--color-text-primary)]', isTransparentHomeHeader);
+
+			headerNavLinks?.forEach((link) => {
+				link.classList.toggle('text-white/90', !isTransparentHomeHeader);
+				link.classList.toggle('hover:text-white', !isTransparentHomeHeader);
+				link.classList.toggle('text-[var(--color-text-primary)]', isTransparentHomeHeader);
+				link.classList.toggle('hover:text-[var(--color-olive)]', isTransparentHomeHeader);
+			});
+		}
 	}
 
 	function openMenu() {
