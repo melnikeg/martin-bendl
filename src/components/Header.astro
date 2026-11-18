@@ -29,7 +29,7 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 >
 	<div id="site-header-content" class:list={['mx-auto px-6 lg:pl-40 lg:pr-10 h-full flex items-center', isHomePage ? 'justify-end' : 'justify-between']}>
 		<!-- Brand / Logo with mountain SVG -->
-		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-70']}>
+		<a id="site-header-brand" href={homeHref} class:list={['group flex items-center gap-3', isHomePage && 'mr-70 max-md:mr-0']}>
 			<img src={`${baseUrl}/wald-logo-footer.svg`} class="w-45 h-20 object-contain" alt="" aria-hidden="true" />
 			<span class="h-7 border-l border-white/30" aria-hidden="true"></span>
 			<span class={brandClass}>Martin Bendl</span>
@@ -78,14 +78,14 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 				<a
 					href={storyHref}
 					aria-current={isStoryPage ? 'page' : undefined}
-					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)]', storyLinkClass]}
+					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)] max-md:text-[var(--color-text-primary)] max-md:hover:text-[var(--color-olive)]', storyLinkClass]}
 				>
 					Meine Geschichte
 				</a>
 				<a
 					href={offenDenkenHref}
 					aria-current={isOffenDenkenPage ? 'page' : undefined}
-					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)]', offenDenkenLinkClass]}
+					class:list={['mobile-link border-b border-[var(--color-border-soft)]/70 py-3 text-base font-medium transition-colors hover:text-[var(--color-olive)] max-md:text-[var(--color-text-primary)] max-md:hover:text-[var(--color-olive)]', offenDenkenLinkClass]}
 				>
 					Offen Denken
 				</a>
