@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+	title="Datenschutzerklärung — Martin Bendl"
+	description="Datenschutzerklärung gemäß Datenschutz-Grundverordnung (DSGVO) und Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG)."
+>
+	<Header />
+
+	<main class="w-full pt-20 md:pt-14">
+		<section class="mx-auto max-w-[1280px] px-6 py-10 md:px-10 md:py-14">
+			<div class="mx-auto max-w-2xl md:mt-6">
+				<p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-olive)]">
+					Datenschutz
+				</p>
+				<h1 class="mb-8 text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl md:text-6xl">
+					Datenschutzerklärung
+				</h1>
+
+				<div class="space-y-8 text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
+					<!-- 1. Datenschutz auf einen Blick -->
+					<section class="space-y-3">
+						<h2 class="text-xl font-bold text-[var(--color-text-primary)]">
+							1. Datenschutz auf einen Blick
+						</h2>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Allgemeine Hinweise
+						</h3>
+						<p>
+							Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer nachfolgenden Datenschutzerklärung.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Datenerfassung auf dieser Website
+						</h3>
+						<p>
+							<strong class="text-[var(--color-text-primary)]">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
+							Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.
+						</p>
+						<p>
+							<strong class="text-[var(--color-text-primary)]">Wie erfassen wir Ihre Daten?</strong><br />
+							Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie per E-Mail an uns senden.<br />
+							Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+						</p>
+						<p>
+							<strong class="text-[var(--color-text-primary)]">Wofür nutzen wir Ihre Daten?</strong><br />
+							Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden, sofern Sie dem zugestimmt haben.
+						</p>
+						<p>
+							<strong class="text-[var(--color-text-primary)]">Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br />
+							Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.
+						</p>
+					</section>
+
+					<!-- 2. Verantwortliche Stelle -->
+					<section class="space-y-3">
+						<h2 class="text-xl font-bold text-[var(--color-text-primary)]">
+							2. Verantwortliche Stelle
+						</h2>
+						<p>
+							Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
+						</p>
+						<p class="text-[var(--color-text-primary)] font-medium">
+							Martin Bendl<br />
+							[Straße und Hausnummer]<br />
+							[PLZ und Ort]<br />
+							Deutschland<br />
+							Telefon: [Telefonnummer]<br />
+							E-Mail: <a href="mailto:kontakt@martin-bendl.de" class="text-[var(--color-olive-dark)] hover:underline font-medium">kontakt@martin-bendl.de</a>
+						</p>
+						<p>
+							Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+						</p>
+					</section>
+
+					<!-- 3. Allgemeine Hinweise und Pflichtinformationen -->
+					<section class="space-y-3">
+						<h2 class="text-xl font-bold text-[var(--color-text-primary)]">
+							3. Allgemeine Hinweise und Pflichtinformationen
+						</h2>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Rechtsgrundlagen der Verarbeitung
+						</h3>
+						<p>
+							Sofern wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage. Bei der Verarbeitung von personenbezogenen Daten, die zur Erfüllung eines Vertrages erforderlich sind, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage. Ist die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich, dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Speicherdauer
+						</h3>
+						<p>
+							Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen).
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Widerruf Ihrer Einwilligung zur Datenverarbeitung
+						</h3>
+						<p>
+							Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen (Art. 21 DSGVO)
+						</h3>
+						<p class="text-xs sm:text-sm italic">
+							WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Beschwerderecht bei der zuständigen Aufsichtsbehörde
+						</h3>
+						<p>
+							Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde für Bayern ist:<br />
+							<strong class="text-[var(--color-text-primary)]">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</strong><br />
+							Promenade 18, 91522 Ansbach, Deutschland<br />
+							Website: <a href="https://www.baylda.bayern.de" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">www.baylda.bayern.de</a>
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Recht auf Datenübertragbarkeit (Art. 20 DSGVO)
+						</h3>
+						<p>
+							Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Auskunft, Berichtigung und Löschung (Art. 15, 16, 17 DSGVO)
+						</h3>
+						<p>
+							Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten.
+						</p>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							SSL- bzw. TLS-Verschlüsselung
+						</h3>
+						<p>
+							Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+						</p>
+					</section>
+
+					<!-- 4. Datenerfassung auf dieser Website -->
+					<section class="space-y-3">
+						<h2 class="text-xl font-bold text-[var(--color-text-primary)]">
+							4. Datenerfassung auf dieser Website
+						</h2>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Hosting über GitHub Pages
+						</h3>
+						<p>
+							Wir hosten diese Website bei <strong>GitHub Pages</strong>, einem Dienst der GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.
+						</p>
+						<p>
+							Wenn Sie unsere Website besuchen, erfasst GitHub temporär Protokolldaten (Logfiles), darunter Ihre IP-Adresse, Zugriffszeiten, übertragene Datenmengen, den verwendeten Browser sowie das Betriebssystem. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an der technisch fehlerfreien und sicheren Bereitstellung unseres Online-Angebots.
+						</p>
+						<p>
+							Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission bzw. das EU-US Data Privacy Framework gestützt. Details entnehmen Sie der Datenschutzerklärung von GitHub: 
+							<a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline break-all">
+								https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement
+							</a>.
+						</p>
+
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Kontaktaufnahme per E-Mail
+						</h3>
+						<p>
+							Wenn Sie uns per E-Mail kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, E-Mail-Adresse, Inhalt der Nachricht) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+						</p>
+						<p>
+							Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) или auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+						</p>
+					</section>
+
+					<!-- 5. Externe Dienste und Verlinkungen -->
+					<section class="space-y-3">
+						<h2 class="text-xl font-bold text-[var(--color-text-primary)]">
+							5. Externe Dienste und Verlinkungen
+						</h2>
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Google Web Fonts
+						</h3>
+						<p>
+							Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten Web Fonts, die von Google bereitgestellt werden (Google Fonts). Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten in ihren Browsercache, um Texte korrekt anzuzeigen.
+						</p>
+						<p>
+							Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer ansprechenden und einheitlichen Darstellung unserer Website).
+						</p>
+						<p>
+							Weitere Informationen zu Google Web Fonts finden Sie unter 
+							<a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">
+								https://developers.google.com/fonts/faq
+							</a> und in der Datenschutzerklärung von Google: 
+							<a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">
+								https://policies.google.com/privacy?hl=de
+							</a>.
+						</p>
+
+						<h3 class="text-base font-semibold text-[var(--color-text-primary)]">
+							Verlinkungen zu Social Media (Instagram, Facebook) und Podigee
+						</h3>
+						<p>
+							Auf unserer Website sind Verlinkungen zu externen sozialen Netzwerken (Instagram, Facebook) sowie zur Podcast-Plattform Podigee integriert. Es handelt sich hierbei um <strong class="text-[var(--color-text-primary)]">reine Hyperlinks</strong> und nicht um Social-Plugins, die bereits beim Laden der Seite Daten an die Plattformbetreiber übermitteln.
+						</p>
+						<p>
+							Erst wenn Sie aktiv auf das entsprechende Symbol oder den Link klicken, werden Sie auf die Website des jeweiligen Anbieters weitergeleitet. Erst dann werden durch den Zielanbieter Daten erhoben. Nähere Informationen zur Datenverarbeitung finden Sie in den Datenschutzerklärungen der jeweiligen Plattformen:
+						</p>
+						<ul class="list-disc pl-5 space-y-1">
+							<li>
+								<strong class="text-[var(--color-text-primary)]">Instagram / Meta:</strong> 
+								<a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">
+									https://privacycenter.instagram.com/policy
+								</a>
+							</li>
+							<li>
+								<strong class="text-[var(--color-text-primary)]">Facebook / Meta:</strong> 
+								<a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">
+									https://www.facebook.com/privacy/policy
+								</a>
+							</li>
+							<li>
+								<strong class="text-[var(--color-text-primary)]">Podigee GmbH:</strong> 
+								<a href="https://www.podigee.com/de/about/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-olive-dark)] hover:underline">
+									https://www.podigee.com/de/about/privacy/
+								</a>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
