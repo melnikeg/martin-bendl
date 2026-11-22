@@ -19,9 +19,8 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 
 <header
 	class:list={[
-		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color,backdrop-filter,box-shadow] duration-300 md:h-14',
-		isHomePage ? 'bg-transparent max-md:bg-[var(--color-oliv-dunk)]' : 'bg-[var(--color-oliv-dunk)]',
-		isStoryPage || isOffenDenkenPage ? 'backdrop-blur-md shadow-sm' : '',
+		'fixed top-0 left-0 right-0 z-50 h-20 transition-[background-color] duration-300 md:h-14',
+		isHomePage ? 'bg-transparent max-md:bg-[var(--color-olive-dark)]' : 'bg-[var(--color-olive-dark)]',
 	]}
 	data-home-page={isHomePage ? 'true' : undefined}
 	data-offen-denken-page={isOffenDenkenPage ? 'true' : undefined}
@@ -141,13 +140,10 @@ const brandClass = 'text-[1.15rem] font-semibold tracking-tight text-white group
 	function updateHeaderAppearance() {
 		const isScrolled = window.scrollY > 50;
 		const isMobile = isMobileViewport();
-		const hasFixedBackground = isOpen || isStoryPage || isOffenDenkenPage || isMobile;
 		const isTransparentHomeHeader = isHomePage && !isScrolled && !isMobile && !isOpen;
 
 		header?.classList.toggle('bg-transparent', isTransparentHomeHeader);
-		header?.classList.toggle('bg-[var(--color-oliv-dunk)]', !isTransparentHomeHeader);
-		header?.classList.toggle('backdrop-blur-md', hasFixedBackground || isScrolled);
-		header?.classList.toggle('shadow-sm', hasFixedBackground || isScrolled);
+		header?.classList.toggle('bg-[var(--color-olive-dark)]', !isTransparentHomeHeader);
 		header?.classList.toggle('transition-none', isOpen);
 		headerContent?.classList.toggle('justify-end', isHomePage && !isMobile);
 		headerContent?.classList.toggle('justify-between', !isHomePage || isMobile);
